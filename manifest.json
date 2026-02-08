@@ -1,0 +1,9 @@
+{
+  "name": "BEACON GLOBAL OFFICIAL",
+  "short_name": "BGO NEWS",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "description": "The sanctuary for truth and the secrets they hid."
+}
