@@ -16,30 +16,28 @@
         .news-image { width: 100%; height: 400px; background: #000; object-fit: cover; border-bottom: 4px solid var(--neon); }
         .news-content { padding: 30px; }
         
-        /* VIP BUTTONS */
-        .btn { background: var(--neon); color: #000; padding: 12px 25px; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block; cursor: pointer; border: none; transition: 0.3s; text-align: center; }
-        .btn:hover { background: #fff; box-shadow: 0 0 20px var(--neon); transform: scale(1.02); }
+        .btn { background: var(--neon); color: #000; padding: 15px 25px; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block; cursor: pointer; border: none; transition: 0.3s; text-align: center; width: auto; }
+        .btn:hover { background: #fff; box-shadow: 0 0 20px var(--neon); }
         
-        /* MODAL SYSTEM */
-        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); backdrop-filter: blur(8px); }
-        .modal-content { background: var(--card); margin: 15% auto; padding: 35px; border: 2px solid var(--neon); width: 85%; max-width: 450px; border-radius: 12px; text-align: center; box-shadow: 0 0 40px var(--neon); animation: slideDown 0.3s ease-out; }
-        @keyframes slideDown { from {transform: translateY(-30px); opacity: 0;} to {transform: translateY(0); opacity: 1;} }
-        .close-btn { color: var(--neon); float: right; font-size: 28px; font-weight: bold; cursor: pointer; line-height: 20px; }
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); }
+        .modal-content { background: var(--card); margin: 20% auto; padding: 40px; border: 2px solid var(--neon); width: 80%; max-width: 400px; border-radius: 15px; text-align: center; box-shadow: 0 0 50px var(--neon); animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        @keyframes popIn { from {transform: scale(0.8); opacity: 0;} to {transform: scale(1); opacity: 1;} }
+        .close-btn { color: var(--neon); float: right; font-size: 30px; cursor: pointer; margin-top: -20px; }
 
-        footer { text-align: center; padding: 50px; font-size: 0.8rem; opacity: 0.6; border-top: 1px solid #222; }
+        footer { text-align: center; padding: 50px; font-size: 0.8rem; opacity: 0.5; border-top: 1px solid #222; }
     </style>
 </head>
 <body>
     <div class="ticker">BGO NEWS EXCLUSIVE: INFRASTRUCTURE SECURED — DECENTRALIZED DATA ARCHITECTURE LIVE — SYSTEM STATUS: OPTIMAL —</div>
-    <header><div class="logo">BGO <span>NEWS</span></div><div style="color:var(--neon);font-weight:bold;">LIVE TERMINAL</div></header>
+    <header><div class="logo">BGO <span>NEWS</span></div><div style="color:var(--neon);font-weight:bold;font-size:0.7rem;">LIVE TERMINAL</div></header>
     
     <div class="container">
         <article class="news-entry">
             <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" class="news-image">
             <div class="news-content">
-                <span style="background:var(--neon);color:#000;padding:4px 12px;font-weight:bold;">BROADCAST</span>
-                <h1 style="font-size:2.5rem;margin:15px 0;letter-spacing:-1px;">BGO ARCHITECTURE: SECURING THE DIGITAL FRONTIER</h1>
-                <p style="font-size:1.2rem;color:#cbd5e0;line-height:1.6;">Beacon Global Official (BGO) leads the initiative in verified information architecture. Our sanctuary terminal is now operational for global intelligence data.</p>
+                <span style="background:var(--neon);color:#000;padding:4px 12px;font-weight:bold;font-size:0.8rem;">BROADCAST</span>
+                <h1 style="font-size:2.2rem;margin:15px 0;">BGO ARCHITECTURE: SECURING THE DIGITAL FRONTIER</h1>
+                <p style="font-size:1.1rem;color:#cbd5e0;line-height:1.6;">Beacon Global Official (BGO) sanctuary terminal is now operational. Our systems are verified for elite intelligence data distribution.</p>
                 <button class="btn" onclick="openModal()">SECURE CONTACT PROTOCOL</button>
             </div>
         </article>
@@ -48,12 +46,10 @@
     <div id="contactModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h2 style="color:var(--gold);margin-top:0;">BGO SECURE TERMINAL</h2>
-            <p style="margin:20px 0;"><strong>Official Email:</strong><br>bgonews@gmail.com</p>
-            <p><strong>Headquarters:</strong><br>Lagos, Nigeria</p>
-            <hr style="border: 0.1px solid #333; margin: 25px 0;">
-            <p style="font-size: 0.85rem; color: var(--neon); margin-bottom: 20px;">ENCRYPTION ACTIVE: CHANNEL 01</p>
-            <a href="mailto:bgonews@gmail.com" class="btn" style="width: 90%; display: block; margin: 0 auto;">SEND DIRECT EMAIL</a>
+            <h2 style="color:var(--gold);margin-bottom:10px;">BGO TERMINAL</h2>
+            <p style="color:var(--neon);font-size:0.8rem;margin-bottom:25px;">ENCRYPTED CHANNEL OPEN</p>
+            <p style="margin-bottom:30px;"><strong>Official Registry:</strong><br>bgonews@gmail.com</p>
+            <a href="mailto:bgonews@gmail.com" class="btn" style="display:block; width:100%; box-sizing:border-box;">OPEN DIRECT EMAIL</a>
         </div>
     </div>
 
