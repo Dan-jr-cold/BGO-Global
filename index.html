@@ -6,7 +6,7 @@
     <title>BGO NEWS | Global Sanctuary</title>
     <style>
         :root { --bg: #0D1525; --neon: #00E5FF; --gold: #D4AF37; --text: #F0F4F8; --card: #162235; }
-        body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; margin: 0; }
+        body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; margin: 0; overflow-x: hidden; }
         header { background: rgba(13,21,37,0.98); border-bottom: 3px solid var(--neon); padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
         .logo { font-size: 1.8rem; font-weight: 900; letter-spacing: 3px; }
         .logo span { color: var(--neon); }
@@ -15,30 +15,53 @@
         .news-entry { background: var(--card); border-radius: 8px; overflow: hidden; margin-bottom: 40px; border: 1px solid #25334a; }
         .news-image { width: 100%; height: 400px; background: #000; object-fit: cover; border-bottom: 4px solid var(--neon); }
         .news-content { padding: 30px; }
-        .vip-section { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-top: 50px; border-top: 1px solid #333; padding-top: 40px; }
-        .contact-card { background: #0a111e; padding: 25px; border-radius: 8px; border: 1px solid var(--gold); }
-        .btn { background: var(--neon); color: #000; padding: 12px 25px; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block; margin-top: 10px; }
+        
+        /* CONTACT BUTTON & MODAL */
+        .btn { background: var(--neon); color: #000; padding: 12px 25px; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block; cursor: pointer; border: none; transition: 0.3s; }
+        .btn:hover { background: #fff; box-shadow: 0 0 15px var(--neon); }
+        
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); backdrop-filter: blur(5px); }
+        .modal-content { background: var(--card); margin: 15% auto; padding: 30px; border: 2px solid var(--neon); width: 80%; max-width: 500px; border-radius: 10px; text-align: center; box-shadow: 0 0 30px var(--neon); animation: slideDown 0.4s; }
+        @keyframes slideDown { from {transform: translateY(-50px); opacity: 0;} to {transform: translateY(0); opacity: 1;} }
+        .close-btn { color: var(--neon); float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+
         footer { text-align: center; padding: 50px; font-size: 0.8rem; opacity: 0.6; }
     </style>
 </head>
 <body>
-    <div class="ticker">BGO NEWS EXCLUSIVE: INFRASTRUCTURE SECURED — DECENTRALIZED DATA ARCHITECTURE LIVE — WELCOME TO THE SANCTUARY —</div>
+    <div class="ticker">BGO NEWS EXCLUSIVE: INFRASTRUCTURE SECURED — DECENTRALIZED DATA ARCHITECTURE LIVE — SYSTEM STATUS: OPTIMAL —</div>
     <header><div class="logo">BGO <span>NEWS</span></div><div style="color:var(--neon);font-weight:bold;">LIVE TERMINAL</div></header>
+    
     <div class="container">
         <article class="news-entry">
             <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" class="news-image">
             <div class="news-content">
                 <span style="background:var(--neon);color:#000;padding:4px 12px;font-weight:bold;">BROADCAST</span>
                 <h1 style="font-size:2.5rem;margin:15px 0;">BGO ARCHITECTURE: SECURING THE DIGITAL FRONTIER</h1>
-                <p style="font-size:1.2rem;color:#cbd5e0;">Beacon Global Official (BGO) announces the deployment of a high-speed intelligence sanctuary. Our systems are now verified for global data integrity.</p>
-                <div style="margin-top:20px;border-top:1px solid #333;padding-top:15px;color:var(--neon);">STATUS: SYSTEM OPERATIONAL 🟢</div>
+                <p style="font-size:1.2rem;color:#cbd5e0;">Beacon Global Official (BGO) leads the initiative in verified information architecture. Our sanctuary terminal is now operational for global intelligence data.</p>
+                <button class="btn" onclick="openModal()">SECURE CONTACT PROTOCOL</button>
             </div>
         </article>
-        <div class="vip-section">
-            <div><h2 style="color:var(--gold);">ABOUT THE AGENCY</h2><p>BGO is a top-tier News and Technology sanctuary. Founded by Professor Daniel, our mission is integrity and technical excellence.</p></div>
-            <div class="contact-card"><h3>CONTACT PROTOCOL</h3><p><strong>Email:</strong> bgonews@gmail.com</p><p><strong>Location:</strong> Lagos, Nigeria</p><a href="mailto:bgonews@gmail.com" class="btn">SEND MESSAGE</a></div>
+    </div>
+
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 style="color:var(--gold);">BGO SECURE TERMINAL</h2>
+            <p><strong>Official Email:</strong><br>bgonews@gmail.com</p>
+            <p><strong>Headquarters:</strong><br>Lagos, Nigeria</p>
+            <hr style="border: 0.5px solid #333; margin: 20px 0;">
+            <p style="font-size: 0.9rem; color: var(--neon);">All communications are logged and encrypted.</p>
+            <a href="mailto:bgonews@gmail.com" class="btn" style="width: 80%;">SEND DIRECT EMAIL</a>
         </div>
     </div>
+
     <footer><p>&copy; 2026 BEACON GLOBAL OFFICIAL. POWERED BY BGO SYSTEMS ARCHITECTURE</p></footer>
+
+    <script>
+        function openModal() { document.getElementById("contactModal").style.display = "block"; }
+        function closeModal() { document.getElementById("contactModal").style.display = "none"; }
+        window.onclick = function(event) { if (event.target == document.getElementById("contactModal")) { closeModal(); } }
+    </script>
 </body>
 </html>
