@@ -9,22 +9,23 @@
             --brand: #B8860B;  
             --alert-red: #cc0000;
             --bg: #000000;
+            --dock-bg: rgba(20, 20, 20, 0.95);
         }
-        
-        /* THE EMPIRE GRID EFFECT */
-        main::before {
+
+        /* THE EMPIRE GRID */
+        body::before {
             content: "";
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
             background-image: 
-                linear-gradient(rgba(184, 134, 11, 0.05) 1px, transparent 1px),
-                linear-gradient(90px, rgba(184, 134, 11, 0.05) 1px, transparent 1px);
-            background-size: 40px 40px;
+                linear-gradient(rgba(184, 134, 11, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(184, 134, 11, 0.08) 1px, transparent 1px);
+            background-size: 50px 50px;
             z-index: -1;
             pointer-events: none;
         }
-        
+
         body {
             background-color: var(--bg);
             color: #ffffff;
@@ -34,26 +35,21 @@
             flex-direction: column;
             min-height: 100vh;
             text-transform: uppercase;
+            padding-bottom: 80px; /* Space for the dock */
         }
 
-        /* EMERGENCY ALERT BAR */
         .breaking-bar {
             background: var(--alert-red);
             color: white;
             padding: 10px;
             font-weight: 900;
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             letter-spacing: 2px;
             animation: pulse 1.5s infinite;
-            border-bottom: 2px solid white;
         }
 
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.7; }
-            100% { opacity: 1; }
-        }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; } }
 
         header {
             border-bottom: 1px solid #333;
@@ -78,27 +74,51 @@
 
         h1 { font-size: 3rem; font-weight: 900; line-height: 0.8; margin: 0 0 20px 0; }
 
-        .intel-post { border-bottom: 1px solid #222; padding: 15px 0; }
+        .intel-post { border-bottom: 1px solid #222; padding: 15px 0; background: rgba(255,255,255,0.02); margin-bottom: 5px; padding-left: 10px; }
         .post-meta { color: var(--brand); font-family: monospace; font-size: 0.7rem; }
         .post-title { font-size: 1.1rem; font-weight: bold; margin: 5px 0; }
         .post-body { font-size: 0.85rem; color: #999; text-transform: none; line-height: 1.5; }
 
-        .news-ticker {
-            background: #000;
-            border-top: 1px solid var(--brand);
-            padding: 12px 0;
-            position: sticky;
-            bottom: 0;
-            width: 100%;
+        /* THE NAVIGATION DOCK */
+        .nav-dock {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 400px;
+            background: var(--dock-bg);
+            border: 1px solid #444;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-around;
+            padding: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,1);
+            z-index: 100;
+            backdrop-filter: blur(10px);
         }
-        .ticker-content {
-            display: inline-block;
-            white-space: nowrap;
-            animation: scroll 20s linear infinite;
-            font-weight: bold;
+
+        .nav-item {
+            color: #888;
+            font-size: 0.65rem;
+            font-weight: 900;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .ticker-content span { color: var(--brand); margin-right: 50px; }
-        @keyframes scroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
+        .nav-item.active {
+            color: var(--brand);
+        }
+
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+            background: currentColor;
+            margin-bottom: 4px;
+            clip-path: polygon(50% 0%, 100% 100%, 0% 100%); /* Simple Triangle Icon */
+        }
     </style>
 </head>
 <body>
@@ -123,15 +143,22 @@
                     Official confirmation: The BGO News Agency is fully operational via mobile infrastructure. Global reporting is now active.
                 </div>
             </div>
-            </div>
+        </div>
     </main>
 
-    <div class="news-ticker">
-        <div class="ticker-content">
-            <span>MARKETS: BGO UP 12%</span>
-            <span>INTEL: VERIFIED</span>
-            <span>SYSTEM: SECURE</span>
-        </div>
-    </div>
+    <nav class="nav-dock">
+        <a href="#" class="nav-item active">
+            <div class="nav-icon"></div>
+            INTEL
+        </a>
+        <a href="#" class="nav-item">
+            <div class="nav-icon" style="clip-path: inset(0 0 0 0);"></div>
+            VAULT
+        </a>
+        <a href="#" class="nav-item">
+            <div class="nav-icon" style="clip-path: circle(50% at 50% 50%);"></div>
+            COMMS
+        </a>
+    </nav>
 </body>
 </html>
