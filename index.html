@@ -10,6 +10,21 @@
             --alert-red: #cc0000;
             --bg: #000000;
         }
+        
+        /* THE EMPIRE GRID EFFECT */
+        main::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(184, 134, 11, 0.05) 1px, transparent 1px),
+                linear-gradient(90px, rgba(184, 134, 11, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
         body {
             background-color: var(--bg);
             color: #ffffff;
