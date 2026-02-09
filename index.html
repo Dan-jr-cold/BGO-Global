@@ -5,101 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BGO NEWS | Global Sanctuary</title>
     <style>
-        :root {
-            --bg-void: #0D1525;        /* Your Deep Navy */
-            --neon-cyber: #00E5FF;    /* Your Electric Cyan */
-            --beacon-gold: #D4AF37;    /* Your Lighthouse Gold */
-            --data-white: #F0F4F8; 
-            --panel-bg: #162235;
-        }
-
-        body { background: var(--bg-void); color: var(--data-white); font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
-
-        /* VIP HEADER */
-        header {
-            background: rgba(13, 21, 37, 0.98);
-            border-bottom: 3px solid var(--neon-cyber);
-            padding: 20px 5%;
-            display: flex; justify-content: space-between; align-items: center;
-            position: sticky; top: 0; z-index: 1000;
-        }
-
+        :root { --bg: #0D1525; --neon: #00E5FF; --gold: #D4AF37; --text: #F0F4F8; --card: #162235; }
+        body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; margin: 0; }
+        header { background: rgba(13,21,37,0.98); border-bottom: 3px solid var(--neon); padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
         .logo { font-size: 1.8rem; font-weight: 900; letter-spacing: 3px; }
-        .logo span { color: var(--neon-cyber); }
-
-        /* NEWS TICKER */
-        .ticker-bar { background: #000; color: var(--neon-cyber); padding: 8px; font-size: 0.8rem; overflow: hidden; white-space: nowrap; border-bottom: 1px solid #222; }
-
-        /* MAIN LAYOUT */
+        .logo span { color: var(--neon); }
+        .ticker { background: #000; color: var(--neon); padding: 8px; font-size: 0.8rem; overflow: hidden; white-space: nowrap; border-bottom: 1px solid #222; }
         .container { max-width: 1200px; margin: auto; padding: 20px; }
-
-        /* NEWS POSTING AREA */
-        .news-entry { background: var(--panel-bg); border-radius: 8px; overflow: hidden; margin-bottom: 40px; border: 1px solid #25334a; }
-        .news-image { width: 100%; height: 400px; background: #000; object-fit: cover; border-bottom: 4px solid var(--neon-cyber); }
+        .news-entry { background: var(--card); border-radius: 8px; overflow: hidden; margin-bottom: 40px; border: 1px solid #25334a; }
+        .news-image { width: 100%; height: 400px; background: #000; object-fit: cover; border-bottom: 4px solid var(--neon); }
         .news-content { padding: 30px; }
-        
-        /* CONTACT & VIP INFO SECTION */
-        .vip-section { 
-            display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-top: 50px;
-            border-top: 1px solid #333; padding-top: 40px;
-        }
-
-        .contact-card { background: #0a111e; padding: 25px; border-radius: 8px; border: 1px solid var(--beacon-gold); }
-        
-        .btn { 
-            background: var(--neon-cyber); color: #000; padding: 12px 25px; 
-            text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block; margin-top: 10px;
-        }
-
+        .vip-section { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-top: 50px; border-top: 1px solid #333; padding-top: 40px; }
+        .contact-card { background: #0a111e; padding: 25px; border-radius: 8px; border: 1px solid var(--gold); }
+        .btn { background: var(--neon); color: #000; padding: 12px 25px; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block; margin-top: 10px; }
         footer { text-align: center; padding: 50px; font-size: 0.8rem; opacity: 0.6; }
     </style>
 </head>
 <body>
-
-    <div class="ticker-bar">
-        BGO NEWS EXCLUSIVE: DATA SECURED — GLOBAL TECH RECOVERY IN PROGRESS — WELCOME TO THE SANCTUARY — 
-    </div>
-
-    <header>
-        <div class="logo">BGO <span>NEWS</span></div>
-        <nav>
-            <a href="#contact" style="color: var(--neon-cyber); text-decoration: none; font-weight: bold;">CONTACT ENQUIRIES</a>
-        </nav>
-    </header>
-
+    <div class="ticker">BGO NEWS EXCLUSIVE: INFRASTRUCTURE SECURED — DECENTRALIZED DATA ARCHITECTURE LIVE — WELCOME TO THE SANCTUARY —</div>
+    <header><div class="logo">BGO <span>NEWS</span></div><div style="color:var(--neon);font-weight:bold;">LIVE TERMINAL</div></header>
     <div class="container">
-        
         <article class="news-entry">
-            <img src="https://via.placeholder.com/1200x600/0D1525/00E5FF?text=BGO+NEWS+IMAGE+HERE" class="news-image" alt="News Photo">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" class="news-image">
             <div class="news-content">
-                <span style="background: var(--neon-cyber); color: black; padding: 3px 10px; font-weight: bold;">BROADCAST</span>
-                <h1 style="font-size: 2.5rem; margin: 15px 0;">NVIDIA x OPENAI: The $100B Infrastructure Stall</h1>
-                <p style="font-size: 1.2rem; color: #cbd5e0;">Reporting on the global AI slowdown and what it means for future Engineering. Data suggests a hardware limitation in the current silicon cycle.</p>
+                <span style="background:var(--neon);color:#000;padding:4px 12px;font-weight:bold;">BROADCAST</span>
+                <h1 style="font-size:2.5rem;margin:15px 0;">BGO ARCHITECTURE: SECURING THE DIGITAL FRONTIER</h1>
+                <p style="font-size:1.2rem;color:#cbd5e0;">Beacon Global Official (BGO) announces the deployment of a high-speed intelligence sanctuary. Our systems are now verified for global data integrity.</p>
+                <div style="margin-top:20px;border-top:1px solid #333;padding-top:15px;color:var(--neon);">STATUS: SYSTEM OPERATIONAL 🟢</div>
             </div>
         </article>
-
-        <div class="vip-section" id="contact">
-            <div>
-                <h2 style="color: var(--beacon-gold);">ABOUT THE AGENCY</h2>
-                <p>Beacon Global Official (BGO) is a top-tier News and Technology sanctuary. We provide verified intelligence and innovative web architecture for the global market. Founded by Professor Daniel, our mission is integrity and technical excellence.</p>
-            </div>
-
-            <div class="contact-card">
-                <h3 style="margin-top: 0;">CONTACT PROTOCOL</h3>
-                <p><strong>Email:</strong> bgonews@gmail.com</p>
-                <p><strong>Location:</strong> Lagos, Nigeria (Global Terminal)</p>
-                <p><strong>Agency Status:</strong> Active 🟢</p>
-                <a href="mailto:admin@bgoglobal.com" class="btn">SEND SECURE MESSAGE</a>
-            </div>
+        <div class="vip-section">
+            <div><h2 style="color:var(--gold);">ABOUT THE AGENCY</h2><p>BGO is a top-tier News and Technology sanctuary. Founded by Professor Daniel, our mission is integrity and technical excellence.</p></div>
+            <div class="contact-card"><h3>CONTACT PROTOCOL</h3><p><strong>Email:</strong> bgonews@gmail.com</p><p><strong>Location:</strong> Lagos, Nigeria</p><a href="mailto:bgonews@gmail.com" class="btn">SEND MESSAGE</a></div>
         </div>
-
     </div>
-
-    <footer>
-        <p>&copy; 2026 BEACON GLOBAL OFFICIAL. ALL RIGHTS RESERVED.</p>
-        <p>POWERED BY BGO SYSTEMS ARCHITECTURE</p>
-    </footer>
-
+    <footer><p>&copy; 2026 BEACON GLOBAL OFFICIAL. POWERED BY BGO SYSTEMS ARCHITECTURE</p></footer>
 </body>
 </html>
-
