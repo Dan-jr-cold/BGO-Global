@@ -3,187 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BGO | GLOBAL AGENCY TERMINAL</title>
+    <title>BGO NEWS | Global Sanctuary</title>
     <style>
         :root {
-            --brand: #B8860B;  /* Industrial Deep Gold */
-            --alert-red: #cc0000;
-            --bg: #000000;
-            --text-main: #ffffff;
-            --text-dim: #666666;
-            --border: rgba(184, 134, 11, 0.2);
+            --bg-void: #0D1525;        /* Your Deep Navy */
+            --neon-cyber: #00E5FF;    /* Your Electric Cyan */
+            --beacon-gold: #D4AF37;    /* Your Lighthouse Gold */
+            --data-white: #F0F4F8; 
+            --panel-bg: #162235;
         }
 
-        /* THE EMPIRE GRID - PRECISION LAYER */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-image: 
-                linear-gradient(rgba(184, 134, 11, 0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(184, 134, 11, 0.04) 1px, transparent 1px);
-            background-size: 40px 40px;
-            z-index: -1;
-            pointer-events: none;
-        }
+        body { background: var(--bg-void); color: var(--data-white); font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
 
-        body {
-            background-color: var(--bg);
-            color: var(--text-main);
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            text-transform: uppercase;
-            padding-bottom: 100px;
-        }
-
-        /* EXECUTIVE ALERT SYSTEM */
-        .breaking-bar {
-            background: var(--alert-red);
-            color: white;
-            padding: 8px;
-            font-weight: 900;
-            text-align: center;
-            font-size: 0.75rem;
-            letter-spacing: 3px;
-            animation: pulse 2s infinite;
-            border-bottom: 1px solid white;
-        }
-
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.8; } 100% { opacity: 1; } }
-
+        /* VIP HEADER */
         header {
-            border-bottom: 1px solid #222;
-            padding: 12px 20px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.65rem;
-            color: var(--text-dim);
-            letter-spacing: 1px;
+            background: rgba(13, 21, 37, 0.98);
+            border-bottom: 3px solid var(--neon-cyber);
+            padding: 20px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 1000;
         }
 
-        main { padding: 40px 20px; flex-grow: 1; max-width: 800px; }
+        .logo { font-size: 1.8rem; font-weight: 900; letter-spacing: 3px; }
+        .logo span { color: var(--neon-cyber); }
 
-        .label {
-            background: var(--brand);
-            color: #000;
-            padding: 3px 12px;
-            font-weight: 900;
-            font-size: 0.75rem;
-            display: inline-block;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
+        /* NEWS TICKER */
+        .ticker-bar { background: #000; color: var(--neon-cyber); padding: 8px; font-size: 0.8rem; overflow: hidden; white-space: nowrap; border-bottom: 1px solid #222; }
+
+        /* MAIN LAYOUT */
+        .container { max-width: 1200px; margin: auto; padding: 20px; }
+
+        /* NEWS POSTING AREA */
+        .news-entry { background: var(--panel-bg); border-radius: 8px; overflow: hidden; margin-bottom: 40px; border: 1px solid #25334a; }
+        .news-image { width: 100%; height: 400px; background: #000; object-fit: cover; border-bottom: 4px solid var(--neon-cyber); }
+        .news-content { padding: 30px; }
+        
+        /* CONTACT & VIP INFO SECTION */
+        .vip-section { 
+            display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-top: 50px;
+            border-top: 1px solid #333; padding-top: 40px;
         }
 
-        h1 { 
-            font-size: 3.5rem; 
-            font-weight: 900; 
-            line-height: 0.85; 
-            margin: 0 0 40px 0; 
-            letter-spacing: -2px;
+        .contact-card { background: #0a111e; padding: 25px; border-radius: 8px; border: 1px solid var(--beacon-gold); }
+        
+        .btn { 
+            background: var(--neon-cyber); color: #000; padding: 12px 25px; 
+            text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block; margin-top: 10px;
         }
 
-        /* TRILLION-DOLLAR NEWS FEED */
-        .intel-post { 
-            border-left: 2px solid var(--brand); 
-            padding: 0 0 30px 20px; 
-            margin-bottom: 10px;
-        }
-        .post-meta { color: var(--brand); font-family: monospace; font-size: 0.7rem; margin-bottom: 5px; }
-        .post-title { font-size: 1.2rem; font-weight: 900; margin-bottom: 10px; letter-spacing: 1px; }
-        .post-body { font-size: 0.9rem; color: #999; text-transform: none; line-height: 1.6; max-width: 600px; }
-
-        /* VIP TERMINAL DOCK */
-        .nav-dock {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 85%;
-            max-width: 400px;
-            background: rgba(10, 10, 10, 0.95);
-            border: 1px solid var(--border);
-            border-radius: 4px; /* Sharp executive corners */
-            display: flex;
-            justify-content: space-around;
-            padding: 15px 5px;
-            backdrop-filter: blur(20px);
-            z-index: 1000;
-        }
-
-        .nav-item {
-            color: var(--text-dim);
-            font-size: 0.6rem;
-            font-weight: 900;
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            letter-spacing: 2px;
-            transition: 0.3s;
-        }
-
-        .nav-item.active { color: var(--brand); }
-
-        .icon-box {
-            width: 20px;
-            height: 20px;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid currentColor;
-            border-radius: 2px;
-        }
+        footer { text-align: center; padding: 50px; font-size: 0.8rem; opacity: 0.6; }
     </style>
 </head>
 <body>
-    <div class="breaking-bar">
-        ⚡ BGO GLOBAL NETWORK: LEVEL 9 ACCESS GRANTED ⚡
+
+    <div class="ticker-bar">
+        BGO NEWS EXCLUSIVE: DATA SECURED — GLOBAL TECH RECOVERY IN PROGRESS — WELCOME TO THE SANCTUARY — 
     </div>
 
     <header>
-        <div>BGO AGENCY // SECURE LINE</div>
-        <div>FEB 2026 // NODE: LAGOS</div>
+        <div class="logo">BGO <span>NEWS</span></div>
+        <nav>
+            <a href="#contact" style="color: var(--neon-cyber); text-decoration: none; font-weight: bold;">CONTACT ENQUIRIES</a>
+        </nav>
     </header>
 
-    <main>
-        <div class="label">LIVE DATA</div>
-        <h1>BEACON<br>GLOBAL</h1>
+    <div class="container">
+        
+        <article class="news-entry">
+            <img src="https://via.placeholder.com/1200x600/0D1525/00E5FF?text=BGO+NEWS+IMAGE+HERE" class="news-image" alt="News Photo">
+            <div class="news-content">
+                <span style="background: var(--neon-cyber); color: black; padding: 3px 10px; font-weight: bold;">BROADCAST</span>
+                <h1 style="font-size: 2.5rem; margin: 15px 0;">NVIDIA x OPENAI: The $100B Infrastructure Stall</h1>
+                <p style="font-size: 1.2rem; color: #cbd5e0;">Reporting on the global AI slowdown and what it means for future Engineering. Data suggests a hardware limitation in the current silicon cycle.</p>
+            </div>
+        </article>
 
-        <div class="feed-container">
-            <div class="intel-post">
-                <div class="post-meta">ID: 003 // STATUS: BROADCASTING</div>
-                <div class="post-title">Empire Infrastructure Active</div>
-                <div class="post-body">
-                    BGO Global has successfully transitioned to a multi-trillion dollar VIP interface. All nodes are reporting optimal performance.
-                </div>
+        <div class="vip-section" id="contact">
+            <div>
+                <h2 style="color: var(--beacon-gold);">ABOUT THE AGENCY</h2>
+                <p>Beacon Global Official (BGO) is a top-tier News and Technology sanctuary. We provide verified intelligence and innovative web architecture for the global market. Founded by Professor Daniel, our mission is integrity and technical excellence.</p>
+            </div>
+
+            <div class="contact-card">
+                <h3 style="margin-top: 0;">CONTACT PROTOCOL</h3>
+                <p><strong>Email:</strong> bgonews@gmail.com</p>
+                <p><strong>Location:</strong> Lagos, Nigeria (Global Terminal)</p>
+                <p><strong>Agency Status:</strong> Active 🟢</p>
+                <a href="mailto:admin@bgoglobal.com" class="btn">SEND SECURE MESSAGE</a>
             </div>
         </div>
-    </main>
 
-    <nav class="nav-dock">
-        <a href="#" class="nav-item active">
-            <div class="icon-box">
-                <div style="width:10px; height:1px; background:currentColor; box-shadow: 0 4px 0 currentColor, 0 -4px 0 currentColor;"></div>
-            </div>
-            INTEL
-        </a>
-        <a href="#" class="nav-item">
-            <div class="icon-box">
-                <div style="width:8px; height:8px; border:1px solid currentColor;"></div>
-            </div>
-            VAULT
-        </a>
-        <a href="#" class="nav-item">
-            <div class="icon-box">
-                <div style="width:2px; height:10px; background:currentColor; transform:rotate(45deg); box-shadow: 3px -3px 0 currentColor;"></div>
-            </div>
-            COMMS
-        </a>
-    </nav>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 BEACON GLOBAL OFFICIAL. ALL RIGHTS RESERVED.</p>
+        <p>POWERED BY BGO SYSTEMS ARCHITECTURE</p>
+    </footer>
+
 </body>
 </html>
+
