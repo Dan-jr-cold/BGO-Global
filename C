@@ -1,0 +1,47 @@
+
+        }
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>BGO GLOBAL // DATA STREAM</div>
+        <div>FEB 2026 // ACCESS: LEVEL 9</div>
+    </header>
+
+    <main>
+        <div class="label">INTEL DESK</div>
+        <h1>BEACON<br>GLOBAL</h1>
+
+        <div class="feed-container">
+            <div class="intel-post">
+                <div class="post-meta">REPORT ID: 001 // SOURCE: VERIFIED</div>
+                <div class="post-title">Global Expansion Protocol Initiated</div>
+                <div class="post-body">
+                    BGO Sanctuary is now live on the global grid. Security protocols are optimal. The agency is prepared for full-scale business intelligence operations.
+                </div>
+            </div>
+
+            <div class="intel-post">
+                <div class="post-meta">REPORT ID: 002 // URGENT</div>
+                <div class="post-title">Market Analysis Update</div>
+                <div class="post-body">
+                    Monitoring global data nodes for upcoming trends. All systems are green. Expecting high-velocity growth in the Q1 sector.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="news-ticker">
+        <div class="ticker-content">
+            <span>LIVE INTEL: BGO NODES ONLINE</span>
+            <span>SYSTEMS: SECURED</span>
+            <span>DATA: ENCRYPTED</span>
+            <span>AUTHORITY: CONFIRMED</span>
+        </div>
+    </div>
+</body>
+</html>
