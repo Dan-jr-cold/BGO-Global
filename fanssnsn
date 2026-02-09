@@ -1,0 +1,68 @@
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-item {
+            color: #888;
+            font-size: 0.65rem;
+            font-weight: 900;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .nav-item.active {
+            color: var(--brand);
+        }
+
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+            background: currentColor;
+            margin-bottom: 4px;
+            clip-path: polygon(50% 0%, 100% 100%, 0% 100%); /* Simple Triangle Icon */
+        }
+    </style>
+</head>
+<body>
+    <div class="breaking-bar">
+        ⚡ BREAKING: BGO GLOBAL NETWORK REACHES OPTIMAL CAPACITY ⚡
+    </div>
+
+    <header>
+        <div>BGO GLOBAL // DATA STREAM</div>
+        <div>FEB 2026 // NODE: LAGOS</div>
+    </header>
+
+    <main>
+        <div class="label">LIVE INTEL</div>
+        <h1>BEACON<br>GLOBAL</h1>
+
+        <div class="feed-container">
+            <div class="intel-post">
+                <div class="post-meta">REPORT ID: 003 // STATUS: LIVE</div>
+                <div class="post-title">The Empire is Mobile</div>
+                <div class="post-body">
+                    Official confirmation: The BGO News Agency is fully operational via mobile infrastructure. Global reporting is now active.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <nav class="nav-dock">
+        <a href="#" class="nav-item active">
+            <div class="nav-icon"></div>
+            INTEL
+        </a>
+        <a href="#" class="nav-item">
+            <div class="nav-icon" style="clip-path: inset(0 0 0 0);"></div>
+            VAULT
+        </a>
+        <a href="#" class="nav-item">
+            <div class="nav-icon" style="clip-path: circle(50% at 50% 50%);"></div>
+            COMMS
+        </a>
+    </nav>
+</body>
+</html>
