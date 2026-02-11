@@ -1,101 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>BGO NEWS | Beacon Global Official</title>
-    <style>
-        :root { --bg: #020814; --card: #0B1222; --neon: #00E5FF; --gold: #D4AF37; --text: #FFFFFF; }
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; margin: 0; padding: 0; }
-        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; padding-bottom: 120px; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BGO NEWS | Sovereign Terminal</title>
 
-        /* HEADER & OFFICIAL LOGO */
-        header { padding: 15px 5%; background: rgba(2, 8, 20, 0.98); border-bottom: 2px solid var(--neon); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-        .logo-container { display: flex; align-items: center; gap: 15px; }
-        
-        /* USING YOUR OFFICIAL LOGO */
-        .official-bgo-logo { width: 80px; height: auto; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5)); }
-        
-        .brand-text h1 { font-size: 1.4rem; font-weight: 900; letter-spacing: 2px; line-height: 1; }
-        .brand-text p { font-size: 0.6rem; color: var(--neon); text-transform: uppercase; letter-spacing: 1.5px; margin-top: 4px; }
+<!-- Google Font (Professional, BBC-style clean) -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-        /* THE NEWS TERMINAL */
-        .container { padding: 20px; max-width: 600px; margin: auto; }
-        .terminal-card { background: var(--card); border: 1px solid #1A263D; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.9); margin-top: 15px; }
-        .terminal-img { width: 100%; height: auto; border-bottom: 4px solid var(--neon); }
-        .terminal-content { padding: 25px; }
-        .status-pill { display: inline-block; padding: 4px 12px; border: 1px solid var(--neon); color: var(--neon); border-radius: 4px; font-size: 0.65rem; font-weight: bold; margin-bottom: 15px; text-transform: uppercase; }
+<style>
+:root {
+    --bg: #020814;
+    --cyan: #00E5FF;
+    --gold: #D4AF37;
+    --glass: rgba(255,255,255,0.03);
+}
 
-        /* NAV DOCK - FIXED & RESPONSIVE */
-        .nav-dock { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 420px; background: rgba(11, 18, 34, 0.95); backdrop-filter: blur(20px); border: 1.5px solid var(--neon); height: 75px; border-radius: 40px; display: flex; justify-content: space-around; align-items: center; z-index: 2000; box-shadow: 0 0 40px rgba(0, 229, 255, 0.4); }
-        .nav-btn { color: #fff; text-decoration: none; font-size: 0.7rem; font-weight: 800; opacity: 0.5; text-align: center; cursor: pointer; border: none; background: none; }
-        .nav-btn.active { opacity: 1; color: var(--neon); text-shadow: 0 0 10px var(--neon); }
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter', sans-serif;
+}
 
-        /* VIP OVERLAY SYSTEM - NO MORE ANNOYING ALERTS */
-        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.96); z-index: 3000; align-items: center; justify-content: center; }
-        .overlay-box { background: var(--card); padding: 40px; border-radius: 25px; border: 2px solid var(--gold); text-align: center; width: 85%; max-width: 380px; box-shadow: 0 0 50px rgba(212, 175, 55, 0.2); }
-        .close-btn { margin-top: 25px; color: var(--neon); cursor: pointer; font-size: 0.8rem; font-weight: bold; display: block; }
-    </style>
+body {
+    background: radial-gradient(circle at center, #04122a 0%, #020814 70%);
+    color: #fff;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* ===== HEADER ===== */
+header {
+    text-align:center;
+    padding:40px 20px 20px;
+}
+
+.logo {
+    width:110px;
+    margin-bottom:20px;
+}
+
+h1 {
+    font-size:28px;
+    font-weight:800;
+    letter-spacing:2px;
+    color:var(--gold);
+}
+
+.tagline {
+    font-size:14px;
+    color:var(--cyan);
+    opacity:0.8;
+    margin-top:6px;
+}
+
+/* ===== MAIN TERMINAL CARD ===== */
+.main-terminal {
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.terminal-card {
+    width:100%;
+    max-width:600px;
+    background:var(--glass);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(0,229,255,0.15);
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 0 40px rgba(0,229,255,0.08);
+}
+
+.terminal-title {
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:15px;
+    color:var(--cyan);
+}
+
+.news-item {
+    padding:15px;
+    margin-bottom:12px;
+    background:rgba(255,255,255,0.02);
+    border-left:3px solid var(--gold);
+    border-radius:8px;
+    font-size:14px;
+}
+
+/* ===== BOTTOM DOCK ===== */
+.dock {
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    background:rgba(2,8,20,0.95);
+    border-top:1px solid rgba(0,229,255,0.2);
+    padding:14px 0;
+    position:sticky;
+    bottom:0;
+}
+
+.dock button {
+    background:none;
+    border:none;
+    color:var(--cyan);
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.dock button:hover {
+    color:var(--gold);
+}
+
+/* ===== OVERLAY SYSTEM ===== */
+.overlay {
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.85);
+    backdrop-filter:blur(12px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+    visibility:hidden;
+    transition:0.4s;
+    z-index:1000;
+}
+
+.overlay.active {
+    opacity:1;
+    visibility:visible;
+}
+
+.overlay-content {
+    background:#081224;
+    border:1px solid rgba(212,175,55,0.4);
+    border-radius:20px;
+    padding:30px;
+    width:90%;
+    max-width:500px;
+    text-align:center;
+    box-shadow:0 0 50px rgba(212,175,55,0.2);
+}
+
+.overlay-content h2 {
+    color:var(--gold);
+    margin-bottom:15px;
+}
+
+.overlay-content p {
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+.close-btn {
+    background:var(--cyan);
+    border:none;
+    padding:10px 18px;
+    border-radius:20px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.close-btn:hover {
+    background:var(--gold);
+    color:#000;
+}
+
+@media(max-width:480px){
+    h1 {font-size:22px;}
+}
+</style>
 </head>
 <body>
 
-    <header>
-        <div class="logo-container">
-            <img src="https://i.ibb.co/Y7F2H7W/BGO-LOGO.png" class="official-bgo-logo" alt="BGO">
-            <div class="brand-text">
-                <h1>BGO NEWS</h1>
-                <p>BEACON GLOBAL OFFICIAL</p>
-            </div>
-        </div>
-        <div style="font-size: 0.6rem; color: var(--neon); border: 1px solid var(--neon); padding: 5px 10px; border-radius: 4px; font-weight: bold;">LIVE</div>
-    </header>
+<header>
+    <!-- Replace with your official Lighthouse logo file -->
+    <img src="logo.png" alt="BGO Lighthouse Logo" class="logo">
+    <h1>BEACON GLOBAL OFFICIAL</h1>
+    <div class="tagline">SOVEREIGN INTELLIGENCE TERMINAL</div>
+</header>
 
-    <div class="container">
-        <article class="terminal-card">
-            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" class="terminal-img">
-            <div class="terminal-content">
-                <span class="status-pill">Infrastructure Secured</span>
-                <h2 style="font-size: 1.8rem; margin-bottom: 12px; letter-spacing: -0.5px;">BGO SANCTUARY: MISSION INTEGRITY</h2>
-                <p style="color: #A0AEC0; line-height: 1.6;">The Beacon Global Official terminal is now serving as the primary sanctuary for tech intelligence. Managed by Professor Daniel, our architecture is built for the global elite.</p>
-                <div style="margin-top: 20px; color: var(--gold); font-size: 0.75rem; font-weight: bold;">[ STATUS: OPERATIONAL ]</div>
-            </div>
-        </article>
+<div class="main-terminal">
+    <div class="terminal-card">
+        <div class="terminal-title">Live Intelligence Feed</div>
+        <div class="news-item">Global markets react to sovereign policy shift.</div>
+        <div class="news-item">Strategic alliances forming across emerging sectors.</div>
+        <div class="news-item">Confidential sources confirm expansion initiatives.</div>
     </div>
+</div>
 
-    <nav class="nav-dock">
-        <button class="nav-btn active" onclick="location.reload()">HOME</button>
-        <button class="nav-btn" onclick="openUI('NEWS')">NEWS</button>
-        <button class="nav-btn" onclick="openUI('CONTACT')">CONTACT</button>
-        <button class="nav-btn" onclick="openUI('VAULT')">VAULT</button>
-    </nav>
+<!-- ===== DOCK ===== -->
+<div class="dock">
+    <button onclick="openOverlay('terminal')">Terminal</button>
+    <button onclick="openOverlay('vault')">Vault</button>
+    <button onclick="openOverlay('about')">About</button>
+</div>
 
-    <div id="vipUI" class="overlay">
-        <div class="overlay-box">
-            <h2 id="uiTitle" style="color: var(--gold); margin-bottom: 15px;"></h2>
-            <div id="uiBody" style="color: #A0AEC0;"></div>
-            <span class="close-btn" onclick="closeUI()">[ EXIT TERMINAL ]</span>
-        </div>
+<!-- ===== TERMINAL OVERLAY ===== -->
+<div class="overlay" id="terminalOverlay">
+    <div class="overlay-content">
+        <h2>News Terminal</h2>
+        <p>Secure broadcast channel established. Encrypted editorial pipeline active.</p>
+        <button class="close-btn" onclick="closeOverlay()">Return</button>
     </div>
+</div>
 
-    <script>
-        function openUI(type) {
-            const ui = document.getElementById('vipUI');
-            const title = document.getElementById('uiTitle');
-            const body = document.getElementById('uiBody');
-            ui.style.display = 'flex';
-            
-            if(type === 'VAULT') {
-                title.innerText = 'ACCESS RESTRICTED';
-                body.innerHTML = 'Level 5 Clearance Required.<br>Please contact the CEO for credentials.';
-            } else if(type === 'CONTACT') {
-                title.innerText = 'SECURE LINE';
-                body.innerHTML = 'bgonews@gmail.com<br><br><a href="mailto:bgonews@gmail.com" style="color:var(--neon); text-decoration:none; font-weight:bold;">[ SEND DIRECT MESSAGE ]</a>';
-            } else {
-                title.innerText = 'BGO NEWS FEED';
-                body.innerHTML = 'Loading Encrypted Data Stream...';
-            }
-        }
-        function closeUI() { document.getElementById('vipUI').style.display = 'none'; }
-    </script>
+<!-- ===== VAULT OVERLAY ===== -->
+<div class="overlay" id="vaultOverlay">
+    <div class="overlay-content">
+        <h2>Executive Vault</h2>
+        <p>Restricted sovereign archives. Clearance level required.</p>
+        <button class="close-btn" onclick="closeOverlay()">Seal Vault</button>
+    </div>
+</div>
+
+<!-- ===== ABOUT OVERLAY ===== -->
+<div class="overlay" id="aboutOverlay">
+    <div class="overlay-content">
+        <h2>About BGO NEWS</h2>
+        <p>Beacon Global Official is a sovereign-grade intelligence and media authority built for elite leadership audiences.</p>
+        <button class="close-btn" onclick="closeOverlay()">Close</button>
+    </div>
+</div>
+
+<script>
+function openOverlay(type){
+    document.getElementById(type + "Overlay").classList.add("active");
+}
+
+function closeOverlay(){
+    document.querySelectorAll(".overlay").forEach(el=>{
+        el.classList.remove("active");
+    });
+}
+</script>
+
 </body>
 </html>
