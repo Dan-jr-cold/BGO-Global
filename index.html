@@ -1,85 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>BGO NEWS | Beacon Global Official</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-        :root { --bg: #020814; --cyan: #00E5FF; --gold: #D4AF37; --text: #FFFFFF; }
-        * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
-        body { background: var(--bg); color: var(--text); padding-bottom: 100px; line-height: 1.6; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* ELITE HEADER */
-        header { 
-            padding: 20px 5%; 
-            border-bottom: 2px solid var(--cyan); 
-            display: flex; 
-            align-items: center; 
-            background: rgba(2,8,20,0.98); 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-        }
-        .logo-img { width: 65px; margin-right: 15px; filter: drop-shadow(0 0 10px var(--gold)); }
-        .brand-titles h1 { font-size: 1.4rem; font-weight: 900; color: var(--gold); letter-spacing: 1px; line-height: 1; }
-        .brand-titles p { font-size: 0.6rem; color: var(--cyan); text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; }
+<title>BGO News | Beacon Global Official</title>
+<meta name="description" content="Beacon Global Official (BGO News) delivers strategic global intelligence, markets analysis, technology shifts and sovereign developments.">
 
-        /* PROFESSIONAL NEWS FEED */
-        .container { padding: 20px; max-width: 700px; margin: auto; }
-        .news-card { background: rgba(255,255,255,0.03); border-radius: 15px; overflow: hidden; border-bottom: 4px solid var(--cyan); margin-top: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .main-img { width: 100%; height: auto; display: block; border-bottom: 1px solid rgba(0,229,255,0.2); }
-        .content { padding: 25px; }
-        .category { color: var(--cyan); font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
-        .headline { font-size: 2rem; margin: 15px 0; line-height: 1.1; font-weight: 900; color: #fff; }
-        .description { color: #A0AEC0; font-size: 1rem; margin-bottom: 15px; }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-        /* VIP APP NAVIGATION */
-        .dock { 
-            position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%); 
-            width: 92%; max-width: 420px; background: rgba(11, 18, 30, 0.96); 
-            backdrop-filter: blur(15px); border: 1.5px solid var(--cyan); 
-            height: 75px; border-radius: 40px; display: flex; 
-            justify-content: space-around; align-items: center; z-index: 2000; 
-            box-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
-        }
-        .dock-btn { 
-            color: #fff; text-decoration: none; font-size: 0.75rem; 
-            font-weight: 900; background: none; border: none; 
-            cursor: pointer; opacity: 0.7; transition: 0.3s;
-            text-transform: uppercase;
-        }
-        .dock-btn:hover { opacity: 1; color: var(--cyan); text-shadow: 0 0 10px var(--cyan); }
-    </style>
+<style>
+:root{
+--gold:#D4AF37;
+--navy:#0A0F1C;
+--dark:#050814;
+--gray:#BFC6D1;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+
+body{
+background:linear-gradient(180deg,var(--navy),var(--dark));
+color:white;
+}
+
+/* HEADER */
+header{
+background:#0B1222;
+padding:20px;
+border-bottom:3px solid var(--gold);
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo{
+font-size:24px;
+font-weight:800;
+letter-spacing:1px;
+}
+
+.logo span{
+color:var(--gold);
+}
+
+/* NAV */
+nav{
+margin-top:10px;
+display:flex;
+gap:20px;
+font-size:14px;
+}
+
+nav a{
+color:var(--gray);
+text-decoration:none;
+font-weight:600;
+}
+
+nav a:hover{
+color:var(--gold);
+}
+
+/* MAIN */
+main{
+max-width:900px;
+margin:40px auto;
+padding:0 20px;
+}
+
+article{
+margin-bottom:40px;
+padding-bottom:30px;
+border-bottom:1px solid rgba(255,255,255,0.08);
+cursor:pointer;
+}
+
+article h2{
+font-size:22px;
+margin-bottom:10px;
+}
+
+article p{
+color:var(--gray);
+line-height:1.6;
+}
+
+/* SUBSCRIPTION MODAL */
+.subscribe-overlay{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.75);
+display:flex;
+justify-content:center;
+align-items:center;
+opacity:0;
+visibility:hidden;
+transition:0.4s;
+}
+
+.subscribe-overlay.active{
+opacity:1;
+visibility:visible;
+}
+
+.subscribe-box{
+background:#0E1628;
+padding:40px;
+width:90%;
+max-width:420px;
+border-radius:8px;
+text-align:center;
+}
+
+.subscribe-box h3{
+font-size:20px;
+margin-bottom:15px;
+}
+
+.subscribe-box p{
+font-size:14px;
+color:var(--gray);
+margin-bottom:20px;
+}
+
+.subscribe-box input{
+width:100%;
+padding:12px;
+margin-bottom:15px;
+border:none;
+border-radius:4px;
+}
+
+.subscribe-box button{
+width:100%;
+padding:12px;
+background:var(--gold);
+border:none;
+font-weight:700;
+cursor:pointer;
+}
+
+.later{
+margin-top:15px;
+font-size:13px;
+color:var(--gray);
+cursor:pointer;
+}
+</style>
 </head>
+
 <body>
 
-    <header>
-        <img src="logo.png" class="logo-img" alt="BGO">
-        <div class="brand-titles">
-            <h1>BGO NEWS</h1>
-            <p>Beacon Global Official</p>
-        </div>
-    </header>
+<header>
+<div class="logo">BGO <span>NEWS</span></div>
+<nav>
+<a href="#">World</a>
+<a href="#">Markets</a>
+<a href="#">Technology</a>
+<a href="#">Policy</a>
+</nav>
+</header>
 
-    <div class="container">
-        <div class="news-card">
-            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" class="main-img">
-            <div class="content">
-                <span class="category">Sovereign Intelligence | Live Update</span>
-                <h2 class="headline">BGO SANCTUARY: MISSION INTEGRITY</h2>
-                <p class="description">The Beacon Global Official terminal is now serving as the primary sanctuary for tech intelligence. Under the leadership of Professor Daniel, the mission remains absolute.</p>
-                <div style="color: var(--gold); font-weight: bold; font-size: 0.8rem; letter-spacing: 1px;">[ STATUS: OPERATIONAL 🟢 ]</div>
-            </div>
-        </div>
-    </div>
+<main>
 
-    <nav class="dock">
-        <button class="dock-btn" onclick="location.reload()">HOME</button>
-        <button class="dock-btn" onclick="alert('Accessing BGO News Archives...')">NEWS</button>
-        <button class="dock-btn" onclick="alert('Contact: bgonews@gmail.com')">CONTACT</button>
-        <button class="dock-btn" onclick="alert('Vault: Level 5 Clearance Required')">VAULT</button>
-    </nav>
+<article onclick="countArticle()">
+<h2>Global Markets Adjust to Emerging Sovereign Policies</h2>
+<p>Financial sectors react to coordinated macroeconomic shifts across key economies.</p>
+</article>
+
+<article onclick="countArticle()">
+<h2>AI Infrastructure Expands Across Strategic Regions</h2>
+<p>Governments and private institutions accelerate high-security digital frameworks.</p>
+</article>
+
+<article onclick="countArticle()">
+<h2>Energy Alliances Reshape International Trade Flow</h2>
+<p>New partnerships are influencing long-term global supply strategies.</p>
+</article>
+
+</main>
+
+<div class="subscribe-overlay" id="subscribeBox">
+<div class="subscribe-box">
+<h3>Get the BGO Briefing</h3>
+<p>Strategic global intelligence. Clear. Direct. No noise.</p>
+<input type="email" placeholder="Enter your email">
+<button>Join Briefing</button>
+<div class="later" onclick="closeSubscribe()">Maybe later</div>
+</div>
+</div>
+
+<script>
+let articleCount = 0;
+
+function countArticle(){
+articleCount++;
+if(articleCount === 3){
+document.getElementById("subscribeBox").classList.add("active");
+}
+}
+
+function closeSubscribe(){
+document.getElementById("subscribeBox").classList.remove("active");
+}
+</script>
 
 </body>
 </html>
