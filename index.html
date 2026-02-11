@@ -3,13 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="BGO NEWS - Beacon Global Official: Sovereign Strategic Global Intelligence. Clear, Direct, No Noise. World-Class VIP News Terminal.">
-    <meta property="og:title" content="BGO NEWS - Beacon Global Official">
-    <meta property="og:description" content="The #1 sovereign news platform. Premium insights. No contenders.">
-    <meta property="og:image" content="https://source.unsplash.com/random/1200x630/?lighthouse,globe,gold,cyber"> <!-- Fallback -->
     <title>BGO NEWS - Beacon Global Official</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' stroke='%2300FFFF' stroke-width='3' fill='none'/><rect x='45' y='25' width='10' height='50' fill='%23FFD700' rx='5'/><line x1='50' y1='15' x2='50' y2='0' stroke='%23FFD700' stroke-width='6'/><line x1='50' y1='15' x2='50' y2='0' stroke='%23C0C0C0' stroke-width='4' opacity='0.7'/></svg>">
     <style>
         body {
             margin: 0;
@@ -18,36 +13,26 @@
             color: #FFD700;
             font-family: 'Inter', sans-serif;
             min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,255,0.02) 2px, rgba(0,255,255,0.02) 4px);
-            pointer-events: none;
-            z-index: -1;
+            display: flex;
+            flex-direction: column;
         }
 
         header {
-            position: sticky;
-            top: 0;
             background: rgba(0,0,51,0.85);
             backdrop-filter: blur(12px);
-            z-index: 1001;
             padding: 12px 16px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             box-shadow: 0 4px 12px rgba(0,0,0,0.6);
         }
 
         .brand-title {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 900;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.8), 0 0 12px #C0C0C0;
             margin: 0;
         }
 
@@ -64,30 +49,15 @@
             border: 1px solid #00FFFF;
             border-radius: 30px;
             color: white;
-            font-size: 1rem;
-            outline: none;
-        }
-
-        .search-input::placeholder { color: #aaa; }
-
-        .mode-toggle {
-            background: none;
-            border: none;
-            color: #00FFFF;
-            font-size: 1.4rem;
-            cursor: pointer;
         }
 
         .ticker {
             background: #c00;
             color: white;
-            padding: 8px 0;
+            padding: 8px;
             font-weight: bold;
             overflow: hidden;
             white-space: nowrap;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
             text-align: center;
         }
 
@@ -100,98 +70,39 @@
 
         .nav-bar {
             background: rgba(0,0,51,0.7);
-            backdrop-filter: blur(10px);
             padding: 10px 0;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 16px 24px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
         }
 
         .nav-bar a {
             color: #00FFFF;
             text-decoration: none;
             font-weight: 700;
-            font-size: 0.95rem;
-            transition: color 0.3s;
         }
 
-        .nav-bar a:hover, .nav-bar a.active { color: #FFD700; }
+        .nav-bar a.active { color: #FFD700; }
 
-        .section-title {
-            font-size: 1.8rem;
-            color: #FFD700;
-            margin: 24px 16px 12px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        main {
+            flex: 1;
+            padding: 16px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        .carousel {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            gap: 16px;
-            padding: 0 16px;
-            margin-bottom: 24px;
-        }
-
-        .carousel-item {
-            flex: 0 0 80%;
-            scroll-snap-align: start;
-            background: rgba(255,255,255,0.04);
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .carousel-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .carousel-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0,0,0,0.6);
-            padding: 12px;
-            color: white;
-        }
-
-        .carousel-caption h3 {
-            margin: 0 0 4px;
-            font-size: 1.2rem;
-        }
-
-        .carousel-caption p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: #ccc;
-        }
-
-        #news-grid {
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 16px;
         }
 
         .card {
             background: rgba(255,255,255,0.04);
-            backdrop-filter: blur(16px);
             border: 1px solid rgba(0,255,255,0.12);
-            border-radius: 16px;
+            border-radius: 12px;
             overflow: hidden;
-            transition: all 0.4s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 24px 48px rgba(0,0,0,0.6), 0 0 32px rgba(0,255,255,0.15);
         }
 
         .card img {
@@ -205,163 +116,85 @@
         }
 
         .card h3 {
-            font-size: 1.4rem;
             margin: 0 0 8px;
             color: #FFD700;
         }
 
         .card p {
             color: #ccc;
-            font-size: 0.95rem;
             margin: 0 0 12px;
         }
 
         .card a {
             color: #00FFFF;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .live-tag {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background: #c00;
-            color: white;
-            padding: 4px 10px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            border-radius: 4px;
-        }
-
-        .read-info {
-            font-size: 0.8rem;
-            color: #888;
-            margin-top: 8px;
         }
 
         footer {
-            background: rgba(0,0,51,0.8);
-            backdrop-filter: blur(16px);
+            background: rgba(0,0,51,0.9);
             padding: 16px;
             text-align: center;
             color: #aaa;
             font-size: 0.9rem;
             margin-top: auto;
         }
-
-        @media (max-width: 768px) {
-            #news-grid { grid-template-columns: 1fr; }
-            .carousel-item { flex: 0 0 90%; }
-            .nav-bar { gap: 12px; padding: 8px; }
-        }
     </style>
 </head>
 <body>
     <div class="ticker">
-        <span>BREAKING: Sovereign Alliances Shift Global Power • AI Frameworks Accelerate • Energy Trade Realigns • BGO NEWS Live • Join Briefing for Exclusive Intel • Stay Sovereign</span>
+        <span>BREAKING: Sovereign Alliances Shift • AI Frameworks Accelerate • Energy Trade Realigns • BGO NEWS Live • Join Briefing</span>
     </div>
 
     <header>
         <h1 class="brand-title">BGO NEWS</h1>
         <div class="search-container">
-            <input type="text" class="search-input" id="search" placeholder="Search sovereign intel...">
+            <input type="text" class="search-input" placeholder="Search sovereign intel...">
         </div>
-        <button class="mode-toggle" onclick="document.body.classList.toggle('light')">🌙</button>
     </header>
 
     <div class="nav-bar">
-        <a href="#" class="active" data-cat="">Home</a>
-        <a href="#" data-cat="world">World</a>
-        <a href="#" data-cat="business">Markets</a>
-        <a href="#" data-cat="technology">Technology</a>
-        <a href="#" data-cat="politics">Policy</a>
-        <a href="#" data-cat="technology">Cyber</a>
-        <a href="#" data-cat="business">Energy</a>
-        <a href="#" data-cat="politics">Sovereign</a>
+        <a href="#" class="active">Home</a>
+        <a href="#">World</a>
+        <a href="#">Markets</a>
+        <a href="#">Technology</a>
+        <a href="#">Policy</a>
+        <a href="#">Cyber</a>
+        <a href="#">Energy</a>
+        <a href="#">Sovereign</a>
     </div>
 
-    <div class="section-title">Discover Sovereign Insights</div>
-    <div class="carousel">
-        <div class="carousel-item">
-            <img src="https://source.unsplash.com/random/800x400/?global,news" alt="Insight 1">
-            <div class="carousel-caption">
-                <h3>Global Realignment</h3>
-                <p>Exclusive BGO analysis on power shifts.</p>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="https://source.unsplash.com/random/800x400/?ai,tech" alt="Insight 2">
-            <div class="carousel-caption">
-                <h3>AI Fortress</h3>
-                <p>High-security expansions worldwide.</p>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="https://source.unsplash.com/random/800x400/?energy,trade" alt="Insight 3">
-            <div class="carousel-caption">
-                <h3>Energy Alliances</h3>
-                <p>Reshaping trade flows.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="section-title">Live Updates</div>
-    <main id="news-grid"></main>
-
-    <div class="section-title">Exclusive from BGO</div>
-    <div id="exclusive-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; max-width: 1400px; margin: 0 auto; padding: 16px;">
-        <!-- Static exclusives for polish -->
-        <div class="card">
-            <img src="https://source.unsplash.com/random/800x400/?cyber,security" alt="Exclusive 1">
-            <div class="card-body">
-                <h3>Cyber Sovereign Frontiers</h3>
-                <p>BGO deep dive into emerging threats.</p>
-                <a href="#">Read Full →</a>
-                <div class="read-info">5 min read • Today</div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://source.unsplash.com/random/800x400/?energy,global" alt="Exclusive 2">
-            <div class="card-body">
-                <h3>Trade Realignment</h3>
-                <p>Strategic partnerships decoded.</p>
-                <a href="#">Read Full →</a>
-                <div class="read-info">4 min read • Today</div>
-            </div>
-        </div>
-    </div>
+    <main>
+        <div class="grid" id="news-grid"></div>
+    </main>
 
     <footer>
         © 2026 Beacon Global Official (BGO NEWS) — Sovereign Intelligence. All Rights Reserved.
     </footer>
 
     <script>
-        const apiToken = 'pub_c01a476c898947fdbf7366caba29faaa'; // From newsdata.io
+        const apiToken = 'pub_c01a476c898947fdbf7366caba29faaa';
 
-        const catMap = { '': '', world: 'world', business: 'business', technology: 'technology', politics: 'politics' };
-
-        async function loadNews(cat = '') {
-            const url = ;
+        async function loadNews(category = '') {
+            let url = ;
+            if (category) {
+                url += ;
+            }
             try {
                 const res = await fetch(url);
                 const data = await res.json();
                 const grid = document.getElementById('news-grid');
                 grid.innerHTML = '';
-                if (data.results) {
+                if (data.results && data.results.length > 0) {
                     data.results.forEach(item => {
                         const card = document.createElement('div');
                         card.className = 'card';
-                        const live = Math.random() > 0.75 ? '<span class="live-tag">LIVE</span>' : '';
-                        const time = Math.floor(Math.random() * 6 + 3);
                         card.innerHTML = ;
                         grid.appendChild(card);
                     });
                 } else {
-                    grid.innerHTML = '<p>Intel loading... Check API key if empty.</p>';
+                    grid.innerHTML = '<p>No recent global news found. Try another category.</p>';
                 }
             } catch (e) {
-                grid.innerHTML = '<p>Connection issue. Retry in a moment.</p>';
+                document.getElementById('news-grid').innerHTML = '<p>News loading... Check connection or API limit.</p>';
             }
         }
 
@@ -370,11 +203,11 @@
                 e.preventDefault();
                 document.querySelectorAll('.nav-bar a').forEach(l => l.classList.remove('active'));
                 a.classList.add('active');
-                loadNews(a.dataset.cat);
+                loadNews(a.textContent.toLowerCase());
             };
         });
 
-        document.getElementById('search').onkeyup = e => {
+        document.querySelector('.search-input').onkeyup = e => {
             if (e.key === 'Enter') {
                 const q = e.target.value.trim().toLowerCase();
                 document.querySelectorAll('.card').forEach(c => {
@@ -383,7 +216,7 @@
             }
         };
 
-        loadNews(); // Initial load
+        loadNews(); // Load global news on start
     </script>
 </body>
 </html>
