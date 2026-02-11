@@ -5,39 +5,155 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BGO NEWS - Beacon Global Official</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        body { margin:0; padding:0; background:linear-gradient(to bottom,#000033,#000066); color:#FFD700; font-family:'Inter',sans-serif; min-height:100vh; display:flex; flex-direction:column; }
-        header { background:rgba(0,0,51,0.85); backdrop-filter:blur(12px); padding:12px 16px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:1000; box-shadow:0 4px 12px rgba(0,0,0,0.6); }
-        .brand-title { font-size:1.8rem; font-weight:900; margin:0; }
-        .search-container { position:relative; flex:1; max-width:500px; margin:0 16px; }
-        .search-input { width:100%; padding:10px 40px 10px 16px; background:rgba(255,255,255,0.08); border:1px solid #00FFFF; border-radius:30px; color:white; }
-        .search-icon { position:absolute; right:15px; top:50%; transform:translateY(-50%); color:#00FFFF; font-size:1.2rem; }
-        .ticker { background:#c00; color:white; padding:8px; font-weight:bold; overflow:hidden; white-space:nowrap; text-align:center; }
-        .ticker span { display:inline-block; animation:scroll 40s linear infinite; }
-        @keyframes scroll { 0%{transform:translateX(100%)} 100%{transform:translateX(-100%)} }
-        .nav-bar { background:rgba(0,0,51,0.7); padding:10px 0; display:flex; justify-content:center; flex-wrap:wrap; gap:16px 24px; }
-        .nav-bar a { color:#00FFFF; text-decoration:none; font-weight:700; }
-        .nav-bar a.active { color:#FFD700; }
-        main { flex:1; padding:16px; max-width:1400px; margin:0 auto; text-align:center; }
-        .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px; }
-        .card { background:rgba(255,255,255,0.04); border:1px solid rgba(0,255,255,0.12); border-radius:12px; overflow:hidden; }
-        .card img { width:100%; height:180px; object-fit:cover; }
-        .card-body { padding:16px; }
-        .card h3 { margin:0 0 8px; color:#FFD700; }
-        .card p { color:#ccc; margin:0 0 12px; }
-        .card a { color:#00FFFF; }
-        .loading { color:#00FFFF; font-size:1.2rem; margin:40px 0; }
-        footer { background:rgba(0,0,51,0.9); padding:16px; text-align:center; color:#aaa; font-size:0.9rem; margin-top:auto; }
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #000033, #000066);
+            color: #FFD700;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background: rgba(0,0,51,0.85);
+            backdrop-filter: blur(12px);
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+        }
+        .brand-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin: 0;
+        }
+        .search-container {
+            position: relative;
+            flex: 1;
+            max-width: 500px;
+            margin: 0 16px;
+        }
+        .search-input {
+            width: 100%;
+            padding: 10px 40px 10px 16px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid #00FFFF;
+            border-radius: 30px;
+            color: white;
+            font-size: 1rem;
+        }
+        .search-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #00FFFF;
+            font-size: 1.2rem;
+        }
+        .ticker {
+            background: #c00;
+            color: white;
+            padding: 8px;
+            font-weight: bold;
+            overflow: hidden;
+            white-space: nowrap;
+            text-align: center;
+        }
+        .ticker span {
+            display: inline-block;
+            animation: scroll 40s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .nav-bar {
+            background: rgba(0,0,51,0.7);
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px 24px;
+        }
+        .nav-bar a {
+            color: #00FFFF;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .nav-bar a.active {
+            color: #FFD700;
+        }
+        main {
+            flex: 1;
+            padding: 16px;
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(0,255,255,0.12);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .card-body {
+            padding: 16px;
+        }
+        .card h3 {
+            margin: 0 0 8px;
+            color: #FFD700;
+        }
+        .card p {
+            color: #ccc;
+            margin: 0 0 12px;
+        }
+        .card a {
+            color: #00FFFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .loading {
+            color: #00FFFF;
+            font-size: 1.2rem;
+            margin: 40px 0;
+        }
+        footer {
+            background: rgba(0,0,51,0.9);
+            padding: 16px;
+            text-align: center;
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
     </style>
 </head>
 <body>
-    <div class="ticker"><span>BREAKING: Global Sovereign Shifts • AI Acceleration • Energy Realignment • BGO NEWS Live • Join Briefing</span></div>
+    <div class="ticker">
+        <span>BREAKING: Global Sovereign Shifts • AI Acceleration • Energy Realignment • BGO NEWS Live • Join Briefing</span>
+    </div>
 
     <header>
         <h1 class="brand-title">BGO NEWS</h1>
         <div class="search-container">
             <input type="text" class="search-input" placeholder="Search sovereign intel...">
-            <span class="search-icon">🔍</span>
+            <span class="search-icon"><i class="fas fa-search"></i></span>
         </div>
     </header>
 
@@ -63,27 +179,41 @@
         const apiToken = 'pub_c01a476c898947fdbf7366caba29faaa';
 
         async function loadNews(category = '') {
-            let url = ;
-            if (category && category !== 'Home') url += ;
+            let url = `https://newsdata.io/api/1/news?apikey=${apiToken}&size=15&language=en`;
+            if (category && category !== 'Home') {
+                url += `&category=${category.toLowerCase()}`;
+            }
             const grid = document.getElementById('news-grid');
             grid.innerHTML = '<div class="loading">Fetching latest headlines...</div>';
             try {
                 const res = await fetch(url);
-                if (!res.ok) throw new Error('API response not OK');
+                if (!res.ok) {
+                    throw new Error(`API returned ${res.status}`);
+                }
                 const data = await res.json();
                 grid.innerHTML = '';
                 if (data.results && data.results.length > 0) {
                     data.results.forEach(item => {
                         const card = document.createElement('div');
                         card.className = 'card';
-                        card.innerHTML = ;
+                        card.innerHTML = `
+                            <img src="${item.image_url || 'https://source.unsplash.com/random/800x400/?news'}" alt="${item.title}" loading="lazy">
+                            <div class="card-body">
+                                <h3>${item.title}</h3>
+                                <p>${item.description || 'Global strategic update from trusted sources.'}</p>
+                                <a href="${item.link}" target="_blank">Read Full →</a>
+                                <div style="font-size:0.8rem; color:#888; margin-top:8px;">
+                                    ${new Date(item.pubDate).toLocaleString()}
+                                </div>
+                            </div>
+                        `;
                         grid.appendChild(card);
                     });
                 } else {
-                    grid.innerHTML = '<p>No recent news found. Try another category or refresh.</p>';
+                    grid.innerHTML = '<p>No recent global news found in this category. Try Home or another topic.</p>';
                 }
             } catch (e) {
-                grid.innerHTML = '<p>News fetch failed. Check connection or API (error: ' + e.message + ').</p>';
+                grid.innerHTML = `<p>News fetch failed: ${e.message}. Check connection or wait — free API has daily limits.</p>`;
             }
         }
 
@@ -105,7 +235,7 @@
             }
         };
 
-        loadNews(); // Global start
+        loadNews(); // Start with global news
     </script>
 </body>
 </html>
