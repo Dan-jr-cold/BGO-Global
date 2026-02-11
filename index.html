@@ -6,7 +6,7 @@
     <meta name="description" content="BGO NEWS - Beacon Global Official: Sovereign Strategic Global Intelligence. Clear, Direct, No Noise. World-Class VIP News Terminal.">
     <meta property="og:title" content="BGO NEWS - Beacon Global Official">
     <meta property="og:description" content="The #1 sovereign news platform. Premium insights. No contenders.">
-    <meta property="og:image" content="https://source.unsplash.com/random/1200x630/?lighthouse,globe,gold,cyber"> <!-- Fallback; replace with your logo URL later -->
+    <meta property="og:image" content="https://source.unsplash.com/random/1200x630/?lighthouse,globe,gold,cyber"> <!-- Fallback -->
     <title>BGO NEWS - Beacon Global Official</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' stroke='%2300FFFF' stroke-width='3' fill='none'/><rect x='45' y='25' width='10' height='50' fill='%23FFD700' rx='5'/><line x1='50' y1='15' x2='50' y2='0' stroke='%23FFD700' stroke-width='6'/><line x1='50' y1='15' x2='50' y2='0' stroke='%23C0C0C0' stroke-width='4' opacity='0.7'/></svg>">
@@ -43,62 +43,6 @@
             justify-content: space-between;
             box-shadow: 0 4px 12px rgba(0,0,0,0.6);
         }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo {
-            width: 54px;
-            height: 54px;
-            position: relative;
-            perspective: 1000px;
-            animation: glow 3s infinite alternate;
-        }
-
-        .globe {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: radial-gradient(circle at 50% 50%, transparent, #00FFFF 60%);
-            box-shadow: 0 0 24px #00FFFF;
-            animation: rotate 25s linear infinite;
-            transform-style: preserve-3d;
-        }
-
-        .lighthouse {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 10px;
-            height: 28px;
-            background: linear-gradient(to bottom, #FFD700, #C0C0C0);
-            border-radius: 5px 5px 0 0;
-            box-shadow: 0 0 12px #FFD700;
-        }
-
-        .beam-gold, .beam-silver {
-            position: absolute;
-            top: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 40px;
-            background: linear-gradient(to top, transparent, #FFD700);
-            animation: beam 4s infinite;
-        }
-
-        .beam-silver {
-            background: linear-gradient(to top, transparent, #C0C0C0);
-            animation-delay: 2s;
-        }
-
-        @keyframes rotate { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
-        @keyframes beam { 0%,100% { opacity: 0.6; transform: scaleY(1); } 50% { opacity: 1; transform: scaleY(1.8); } }
-        @keyframes glow { 0% { filter: brightness(1); } 100% { filter: brightness(1.4); } }
 
         .brand-title {
             font-size: 1.6rem;
@@ -175,34 +119,57 @@
 
         .nav-bar a:hover, .nav-bar a.active { color: #FFD700; }
 
-        .hero {
-            height: 280px;
-            margin: 16px;
+        .section-title {
+            font-size: 1.8rem;
+            color: #FFD700;
+            margin: 24px 16px 12px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 16px;
+            padding: 0 16px;
+            margin-bottom: 24px;
+        }
+
+        .carousel-item {
+            flex: 0 0 80%;
+            scroll-snap-align: start;
+            background: rgba(255,255,255,0.04);
             border-radius: 12px;
             overflow: hidden;
             position: relative;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
         }
 
-        .hero-slide {
+        .carousel-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .carousel-caption {
             position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 1.2s;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 20px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.6);
+            padding: 12px;
             color: white;
-            text-shadow: 0 2px 6px black;
         }
 
-        .hero-slide.active { opacity: 1; }
+        .carousel-caption h3 {
+            margin: 0 0 4px;
+            font-size: 1.2rem;
+        }
 
-        .hero h2 { font-size: 2.2rem; margin: 0 0 8px; }
-        .hero p { font-size: 1.1rem; margin: 0; }
+        .carousel-caption p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
 
         #news-grid {
             display: grid;
@@ -285,9 +252,8 @@
 
         @media (max-width: 768px) {
             #news-grid { grid-template-columns: 1fr; }
-            .hero { height: 220px; }
-            .hero h2 { font-size: 1.8rem; }
-            .nav-bar { gap: 12px; flex-wrap: wrap; padding: 8px; }
+            .carousel-item { flex: 0 0 90%; }
+            .nav-bar { gap: 12px; padding: 8px; }
         }
     </style>
 </head>
@@ -297,17 +263,7 @@
     </div>
 
     <header>
-        <div class="logo-container">
-            <div class="logo">
-                <div class="globe">
-                    <div class="lighthouse">
-                        <div class="beam-gold"></div>
-                        <div class="beam-silver"></div>
-                    </div>
-                </div>
-            </div>
-            <h1 class="brand-title">BGO NEWS</h1>
-        </div>
+        <h1 class="brand-title">BGO NEWS</h1>
         <div class="search-container">
             <input type="text" class="search-input" id="search" placeholder="Search sovereign intel...">
         </div>
@@ -325,29 +281,63 @@
         <a href="#" data-cat="politics">Sovereign</a>
     </div>
 
-    <div class="hero">
-        <div class="hero-slide active" style="background-image: url('https://source.unsplash.com/random/1200x400/?global,lighthouse,gold');">
-            <h2>Sovereign Realignment</h2>
-            <p>Global powers shift — BGO exclusive analysis.</p>
+    <div class="section-title">Discover Sovereign Insights</div>
+    <div class="carousel">
+        <div class="carousel-item">
+            <img src="https://source.unsplash.com/random/800x400/?global,news" alt="Insight 1">
+            <div class="carousel-caption">
+                <h3>Global Realignment</h3>
+                <p>Exclusive BGO analysis on power shifts.</p>
+            </div>
         </div>
-        <div class="hero-slide" style="background-image: url('https://source.unsplash.com/random/1200x400/?ai,cyber');">
-            <h2>AI Fortress Expansion</h2>
-            <p>High-security digital acceleration worldwide.</p>
+        <div class="carousel-item">
+            <img src="https://source.unsplash.com/random/800x400/?ai,tech" alt="Insight 2">
+            <div class="carousel-caption">
+                <h3>AI Fortress</h3>
+                <p>High-security expansions worldwide.</p>
+            </div>
         </div>
-        <div class="hero-slide" style="background-image: url('https://source.unsplash.com/random/1200x400/?energy,trade');">
-            <h2>Energy Alliances 2.0</h2>
-            <p>New trade flows reshaping supply chains.</p>
+        <div class="carousel-item">
+            <img src="https://source.unsplash.com/random/800x400/?energy,trade" alt="Insight 3">
+            <div class="carousel-caption">
+                <h3>Energy Alliances</h3>
+                <p>Reshaping trade flows.</p>
+            </div>
         </div>
     </div>
 
+    <div class="section-title">Live Updates</div>
     <main id="news-grid"></main>
+
+    <div class="section-title">Exclusive from BGO</div>
+    <div id="exclusive-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; max-width: 1400px; margin: 0 auto; padding: 16px;">
+        <!-- Static exclusives for polish -->
+        <div class="card">
+            <img src="https://source.unsplash.com/random/800x400/?cyber,security" alt="Exclusive 1">
+            <div class="card-body">
+                <h3>Cyber Sovereign Frontiers</h3>
+                <p>BGO deep dive into emerging threats.</p>
+                <a href="#">Read Full →</a>
+                <div class="read-info">5 min read • Today</div>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://source.unsplash.com/random/800x400/?energy,global" alt="Exclusive 2">
+            <div class="card-body">
+                <h3>Trade Realignment</h3>
+                <p>Strategic partnerships decoded.</p>
+                <a href="#">Read Full →</a>
+                <div class="read-info">4 min read • Today</div>
+            </div>
+        </div>
+    </div>
 
     <footer>
         © 2026 Beacon Global Official (BGO NEWS) — Sovereign Intelligence. All Rights Reserved.
     </footer>
 
     <script>
-        const apiToken = 'YOUR_API_TOKEN_HERE'; // Sign up free at newsdata.io or newsapi.org and paste here
+        const apiToken = 'YOUR_API_TOKEN_HERE'; // From newsdata.io
 
         const catMap = { '': '', world: 'world', business: 'business', technology: 'technology', politics: 'politics' };
 
@@ -371,7 +361,7 @@
                     grid.innerHTML = '<p>Intel loading... Check API key if empty.</p>';
                 }
             } catch (e) {
-                document.getElementById('news-grid').innerHTML = '<p>Connection issue. Retry in a moment.</p>';
+                grid.innerHTML = '<p>Connection issue. Retry in a moment.</p>';
             }
         }
 
@@ -393,16 +383,7 @@
             }
         };
 
-        // Carousel
-        const slides = document.querySelectorAll('.hero-slide');
-        let idx = 0;
-        setInterval(() => {
-            slides[idx].classList.remove('active');
-            idx = (idx + 1) % slides.length;
-            slides[idx].classList.add('active');
-        }, 6000);
-
-        loadNews(); // Start with home
+        loadNews(); // Initial load
     </script>
 </body>
 </html>
