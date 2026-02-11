@@ -6,87 +6,86 @@
     <title>BGO NEWS | Beacon Global Official</title>
     <style>
         :root { --bg: #050A14; --card: #0D1525; --neon: #00E5FF; --gold: #D4AF37; --text: #FFFFFF; }
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; margin: 0; padding-bottom: 90px; }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; margin: 0; padding: 0; }
+        body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', Roboto, sans-serif; line-height: 1.6; padding-bottom: 100px; }
 
-        /* THE SHINING BEACON LOGO */
-        .beacon-container { display: flex; align-items: center; gap: 12px; }
-        .lighthouse { position: relative; width: 40px; height: 40px; background: var(--gold); clip-path: polygon(40% 0%, 60% 0%, 80% 100%, 20% 100%); border-radius: 2px; }
-        .lighthouse-light { position: absolute; top: 5px; left: 50%; transform: translateX(-50%); width: 80px; height: 80px; background: radial-gradient(circle, rgba(0,229,255,0.8) 0%, rgba(0,229,255,0) 70%); border-radius: 50%; animation: shine 2s infinite alternate; pointer-events: none; }
-        @keyframes shine { from { opacity: 0.3; transform: translateX(-50%) scale(0.8); } to { opacity: 1; transform: translateX(-50%) scale(1.2); } }
+        /* THE ELITE BEACON LOGO */
+        .header-main { padding: 25px 5%; background: rgba(5,10,20,0.98); border-bottom: 2px solid var(--neon); display: flex; justify-content: space-between; align-items: center; sticky: top; z-index: 1000; }
+        .beacon-box { display: flex; align-items: center; gap: 15px; }
+        .shining-beacon { position: relative; width: 30px; height: 40px; background: var(--gold); clip-path: polygon(50% 0%, 0% 100%, 100% 100%); box-shadow: 0 0 20px var(--gold); }
+        .beacon-glow { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); width: 60px; height: 60px; background: radial-gradient(circle, rgba(0,229,255,0.6) 0%, rgba(0,229,255,0) 70%); border-radius: 50%; animation: pulse 2s infinite alternate; }
+        @keyframes pulse { from { opacity: 0.4; transform: translateX(-50%) scale(0.8); } to { opacity: 1; transform: translateX(-50%) scale(1.3); } }
 
-        /* HEADER SECTION */
-        header { padding: 20px 5%; background: rgba(5,10,20,0.95); border-bottom: 2px solid var(--neon); sticky: top; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
-        .brand-text { line-height: 1; }
-        .brand-text h1 { margin: 0; font-size: 1.2rem; letter-spacing: 2px; color: #fff; }
-        .brand-text span { font-size: 0.6rem; color: var(--neon); letter-spacing: 1px; display: block; }
+        .brand-titles h1 { font-size: 1.4rem; letter-spacing: 3px; font-weight: 900; }
+        .brand-titles p { font-size: 0.6rem; color: var(--neon); text-transform: uppercase; letter-spacing: 1.5px; }
 
-        /* NEWS CONTAINER */
-        .container { padding: 20px; max-width: 900px; margin: auto; }
-        .app-card { background: var(--card); border-radius: 20px; overflow: hidden; margin-bottom: 30px; border: 1px solid #1A263D; box-shadow: 0 15px 35px rgba(0,0,0,0.7); }
-        .card-img { width: 100%; height: 280px; object-fit: cover; border-bottom: 3px solid var(--neon); }
-        .card-body { padding: 25px; }
+        /* MAIN NEWS TERMINAL */
+        .container { padding: 20px; max-width: 600px; margin: auto; }
+        .news-terminal { background: var(--card); border: 1px solid #1A263D; border-radius: 15px; overflow: hidden; box-shadow: 0 0 40px rgba(0,0,0,0.8); margin-top: 20px; }
+        .news-img { width: 100%; height: auto; border-bottom: 4px solid var(--neon); display: block; }
+        .news-body { padding: 25px; }
+        .news-label { background: var(--neon); color: #000; padding: 4px 10px; font-size: 0.7rem; font-weight: bold; border-radius: 3px; }
+        .news-title { font-size: 1.8rem; margin: 15px 0; color: #fff; letter-spacing: -1px; line-height: 1.2; }
+        .news-text { color: #A0AEC0; font-size: 1rem; margin-bottom: 20px; }
 
-        /* FLOATING NAVIGATION DOCK */
-        .nav-dock { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 450px; background: rgba(13,21,37,0.95); backdrop-filter: blur(20px); border: 1.5px solid var(--neon); height: 70px; border-radius: 40px; display: flex; justify-content: space-around; align-items: center; z-index: 2000; box-shadow: 0 0 30px rgba(0,229,255,0.4); }
-        .nav-link { color: #fff; text-decoration: none; font-size: 0.65rem; font-weight: 800; text-align: center; opacity: 0.6; transition: 0.3s; }
-        .nav-link.active { opacity: 1; color: var(--neon); text-shadow: 0 0 10px var(--neon); }
+        /* THE VIP DOCK - FIXED BUTTONS */
+        .app-nav { position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 400px; background: rgba(13,21,37,0.95); backdrop-filter: blur(15px); border: 1.5px solid var(--neon); height: 70px; border-radius: 35px; display: flex; justify-content: space-around; align-items: center; z-index: 2000; box-shadow: 0 10px 30px rgba(0,229,255,0.3); }
+        .nav-btn { color: #fff; text-decoration: none; font-size: 0.7rem; font-weight: bold; opacity: 0.6; padding: 10px; cursor: pointer; border: none; background: none; transition: 0.3s; }
+        .nav-btn:hover, .nav-btn.active { opacity: 1; color: var(--neon); text-shadow: 0 0 10px var(--neon); }
 
-        /* MODAL */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); z-index: 3000; backdrop-filter: blur(10px); }
-        .modal-content { background: var(--card); margin: 25% auto; padding: 40px; border-radius: 30px; width: 85%; max-width: 400px; text-align: center; border: 2px solid var(--neon); }
-        .close-btn { color: var(--neon); float: right; font-size: 30px; cursor: pointer; margin-top: -20px; }
-        .btn { background: var(--neon); color: #000; padding: 15px; border-radius: 12px; font-weight: bold; border: none; width: 100%; cursor: pointer; margin-top: 20px; display: block; text-decoration: none; }
+        /* CONTACT MODAL */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 3000; }
+        .modal-box { background: var(--card); margin: 30% auto; padding: 40px; border-radius: 25px; width: 85%; max-width: 380px; text-align: center; border: 2px solid var(--neon); position: relative; }
+        .close-x { position: absolute; top: 15px; right: 20px; color: var(--neon); font-size: 1.5rem; cursor: pointer; }
+        .contact-link { display: block; background: var(--neon); color: #000; padding: 15px; border-radius: 10px; text-decoration: none; font-weight: bold; margin-top: 20px; }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="beacon-container">
-        <div class="lighthouse"><div class="lighthouse-light"></div></div>
-        <div class="brand-text">
-            <h1>BGO NEWS</h1>
-            <span>BEACON GLOBAL OFFICIAL</span>
-        </div>
-    </div>
-    <div style="font-size: 0.7rem; color: var(--neon); border: 1px solid var(--neon); padding: 5px 10px; border-radius: 5px; font-weight: bold;">LIVE TERMINAL</div>
-</header>
-
-<div class="container">
-    <article class="app-card">
-        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" class="card-img">
-        <div class="card-body">
-            <div style="display:flex; justify-content:space-between; align-items:center;">
-                <span style="color: var(--neon); font-size: 0.7rem; font-weight: bold;">INFRASTRUCTURE UPDATED</span>
-                <span style="color: var(--gold); font-size: 0.6rem;">FEB 2026</span>
+    <header class="header-main">
+        <div class="beacon-box">
+            <div class="shining-beacon"><div class="beacon-glow"></div></div>
+            <div class="brand-titles">
+                <h1>BGO NEWS</h1>
+                <p>BEACON GLOBAL OFFICIAL</p>
             </div>
-            <h2 style="margin: 15px 0; font-size: 1.8rem; letter-spacing: -1px;">BGO SANCTUARY: MISSION INTEGRITY</h2>
-            <p style="color: #A0AEC0; line-height: 1.6;">The Beacon Global Official terminal is now serving as the primary sanctuary for tech intelligence. Managed by Professor Daniel, our architecture is built for the global elite.</p>
         </div>
-    </article>
-</div>
+        <div style="font-size: 0.6rem; background: #000; padding: 5px 10px; border: 1px solid var(--neon); border-radius: 4px; color: var(--neon); font-weight: bold;">LIVE TERMINAL</div>
+    </header>
 
-<nav class="nav-dock">
-    <a href="#" class="nav-link active">HOME</a>
-    <a href="#" class="nav-link">NEWS</a>
-    <a href="#" class="nav-link" onclick="openModal()">CONTACT</a>
-    <a href="#" class="nav-link">VAULT</a>
-</nav>
-
-<div id="contactModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-        <h2 style="color: var(--gold);">SECURE LINE</h2>
-        <p style="margin-bottom: 20px;"><strong>Official Registry:</strong><br>bgonews@gmail.com</p>
-        <a href="mailto:bgonews@gmail.com" class="btn">SEND DIRECT MESSAGE</a>
+    <div class="container">
+        <article class="news-terminal">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" class="news-img">
+            <div class="news-body">
+                <span class="news-label">INFRASTRUCTURE SECURED</span>
+                <h2 class="news-title">BGO ARCHITECTURE: SECURING THE DIGITAL FRONTIER</h2>
+                <p class="news-text">Beacon Global Official (BGO) leads the initiative in verified intelligence. Our sanctuary is now fully operational across all global sectors.</p>
+                <div style="border-top: 1px solid #1A263D; padding-top: 15px; color: var(--neon); font-size: 0.8rem; font-weight: bold;">STATUS: SYSTEM OPERATIONAL 🟢</div>
+            </div>
+        </article>
     </div>
-</div>
 
-<script>
-    function openModal() { document.getElementById('contactModal').style.display='block'; }
-    function closeModal() { document.getElementById('contactModal').style.display='none'; }
-    window.onclick = function(event) { if (event.target == document.getElementById('contactModal')) { closeModal(); } }
-</script>
+    <nav class="app-nav">
+        <button class="nav-btn active" onclick="location.reload()">HOME</button>
+        <button class="nav-btn" onclick="alert('BGO News Vault Loading...')">NEWS</button>
+        <button class="nav-btn" onclick="openContact()">CONTACT</button>
+        <button class="nav-btn" onclick="alert('Vault Access Denied: VIP Only')">VAULT</button>
+    </nav>
 
+    <div id="contactUI" class="modal">
+        <div class="modal-box">
+            <span class="close-x" onclick="closeContact()">&times;</span>
+            <h2 style="color: var(--gold); margin-bottom: 10px;">SECURE TERMINAL</h2>
+            <p><strong>Official Email:</strong><br>bgonews@gmail.com</p>
+            <p style="margin-top: 10px;"><strong>Location:</strong><br>Lagos, Nigeria</p>
+            <a href="mailto:bgonews@gmail.com" class="contact-link">SEND DIRECT EMAIL</a>
+        </div>
+    </div>
+
+    <script>
+        function openContact() { document.getElementById('contactUI').style.display='block'; }
+        function closeContact() { document.getElementById('contactUI').style.display='none'; }
+        window.onclick = function(e) { if(e.target == document.getElementById('contactUI')) closeContact(); }
+    </script>
 </body>
 </html>
