@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BGO NEWS - Beacon Global Official: Sovereign Strategic Global Intelligence. Clear, Direct, No Noise.">
+    <meta property="og:title" content="BGO NEWS - World-Class VIP News Terminal">
+    <meta property="og:description" content="The #1 news platform redefining global reporting with cyber-secure, premium insights.">
+    <meta property="og:image" content="https://source.unsplash.com/random/1200x630/?news,lighthouse"> <!-- Placeholder OG image -->
+    <meta property="og:url" content="https://yourgithubusername.github.io/your-repo"> <!-- Update with your GitHub Pages URL -->
     <title>BGO NEWS - Beacon Global Official</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' stroke='teal' stroke-width='2' fill='none'/><rect x='45' y='30' width='10' height='40' fill='gold'/></svg>" type="image/svg+xml"> <!-- Simple lighthouse favicon -->
     <style>
-        /* Midnight-navy gradient background */
+        /* Premium midnight-navy gradient with cyber overlay */
         body {
             margin: 0;
             padding: 0;
@@ -16,32 +22,50 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            will-change: transform; /* Optimize for performance */
+            will-change: transform;
+            position: relative;
+            overflow-x: hidden;
         }
 
-        /* Sticky header with glowing logo */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,255,0.03) 2px, rgba(0,255,255,0.03) 4px);
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        /* Sticky header with glowing 3D logo */
         header {
             position: sticky;
             top: 0;
-            background: rgba(0, 0, 51, 0.8); /* Semi-transparent navy */
-            backdrop-filter: blur(10px); /* Glassmorphism */
+            background: rgba(0, 0, 51, 0.8);
+            backdrop-filter: blur(10px);
             z-index: 1000;
-            padding: 10px;
+            padding: 10px 20px;
             display: flex;
             align-items: center;
+            justify-content: space-between;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
-        .logo {
-            width: 100px;
-            height: 100px;
-            position: relative;
-            perspective: 1000px; /* 3D perspective */
-            transform-style: preserve-3d;
-            animation: glow 2s infinite alternate;
+        .logo-container {
+            display: flex;
+            align-items: center;
         }
 
-        /* 3D Teal Wireframe Globe with Lighthouse */
+        .logo {
+            width: 60px;
+            height: 60px;
+            position: relative;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            animation: glow 2s infinite alternate;
+            margin-right: 10px;
+        }
+
         .globe {
             width: 100%;
             height: 100%;
@@ -50,10 +74,9 @@
             position: relative;
             transform-style: preserve-3d;
             animation: rotate-globe 20s linear infinite;
-            box-shadow: 0 0 20px teal; /* Glowing effect */
+            box-shadow: 0 0 20px teal;
         }
 
-        /* Wireframe lines */
         .globe::before, .globe::after {
             content: '';
             position: absolute;
@@ -74,27 +97,25 @@
             transform: rotateY(90deg);
         }
 
-        /* Sovereign Gold Lighthouse */
         .lighthouse {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) rotateX(0deg);
-            width: 20px;
-            height: 40px;
+            width: 12px;
+            height: 24px;
             background: linear-gradient(to bottom, gold, silver);
-            border-radius: 10px 10px 0 0;
+            border-radius: 6px 6px 0 0;
             box-shadow: 0 0 10px gold;
         }
 
-        /* Dual gold and silver light beams */
         .beam-gold, .beam-silver {
             position: absolute;
-            top: -10px;
+            top: -6px;
             left: 50%;
             transform: translateX(-50%);
-            width: 2px;
-            height: 50px;
+            width: 1px;
+            height: 30px;
             background: linear-gradient(to top, transparent, gold);
             animation: beam-pulse 3s infinite;
             transform-origin: bottom;
@@ -120,39 +141,243 @@
             100% { filter: brightness(1.5); }
         }
 
-        /* Massive bold Inter headlines */
-        h1 {
-            font-size: 3rem;
+        h1.brand-title {
+            font-size: 1.5rem;
             font-weight: 900;
-            text-shadow: 0 0 10px silver; /* Embossed effect */
-            margin: 20px;
-            text-align: center;
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8), 0 0 10px silver;
         }
 
-        /* News container */
+        /* Search bar in header */
+        .search-bar {
+            flex: 1;
+            max-width: 600px;
+            margin: 0 20px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 15px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid cyan;
+            border-radius: 20px;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-input::placeholder {
+            color: silver;
+        }
+
+        /* Navigation categories (BBC-style) */
+        .nav-categories {
+            background: rgba(0,0,51,0.6);
+            backdrop-filter: blur(8px);
+            padding: 8px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .nav-categories a {
+            color: cyan;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-categories a:hover, .nav-categories a.active {
+            color: gold;
+        }
+
+        /* Live ticker bar (scrolling breaking news) */
+        .live-ticker {
+            background: rgba(255,0,0,0.8); /* Red for urgency */
+            color: white;
+            padding: 8px;
+            font-weight: bold;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            z-index: 999;
+        }
+
+        .ticker-text {
+            display: inline-block;
+            animation: ticker-scroll 30s linear infinite;
+        }
+
+        @keyframes ticker-scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Hero carousel (BBC discover section) */
+        .hero-carousel {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide h2 {
+            font-size: 2rem;
+            text-shadow: 0 0 10px black;
+            margin: 0;
+        }
+
+        .carousel-slide p {
+            font-size: 1rem;
+            text-shadow: 0 0 5px black;
+            margin: 5px 0 0;
+        }
+
+        /* News container (grid like BBC) */
         #news-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
         }
 
         .article {
-            background: rgba(255, 255, 255, 0.1); /* Frosted glass */
-            backdrop-filter: blur(5px);
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(0,255,255,0.15);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .article:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 30px rgba(0,255,255,0.2);
+        }
+
+        .article img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(255,215,0,0.2);
+            loading: lazy;
+        }
+
+        .article-content {
+            padding: 16px;
         }
 
         .article h2 {
             font-size: 1.5rem;
-            font-weight: 700;
+            font-weight: 900;
             color: gold;
+            margin: 0 0 8px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
 
         .article p {
             color: silver;
+            margin: 0 0 12px;
+        }
+
+        .article a {
+            color: cyan;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* Live badge */
+        .live-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: red;
+            color: white;
+            padding: 4px 8px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        /* Read time estimate */
+        .read-time {
+            font-size: 0.8rem;
+            color: gray;
+            margin-top: 8px;
+        }
+
+        /* Subtle briefing CTA (non-blocking) */
+        #briefing-cta {
+            position: fixed;
+            bottom: 100px; /* Above nav */
+            right: 20px;
+            background: rgba(0,0,51,0.6);
+            backdrop-filter: blur(12px);
+            border-radius: 12px;
+            padding: 12px 20px;
+            color: silver;
+            font-size: 14px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            z-index: 999;
+            max-width: 280px;
+            border: 1px solid rgba(0,255,255,0.2);
+            display: none; /* Show via JS after delay */
+        }
+
+        #briefing-cta input {
+            width: 100%;
+            margin: 8px 0;
+            padding: 8px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid cyan;
+            color: white;
+            border-radius: 6px;
+        }
+
+        #briefing-cta button {
+            background: gold;
+            color: navy;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        #briefing-cta a {
+            display: block;
+            margin-top: 6px;
+            color: cyan;
+            font-size: 12px;
+            text-align: center;
+            text-decoration: none;
         }
 
         /* Frosted-glass navigation dock at bottom */
@@ -161,74 +386,262 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(0, 0, 51, 0.6);
+            background: rgba(0,0,51,0.6);
             backdrop-filter: blur(20px);
             padding: 10px;
             display: flex;
             justify-content: space-around;
             z-index: 1000;
-            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 -4px 8px rgba(0,0,0,0.5);
         }
 
         nav a {
             color: cyan;
             text-decoration: none;
             font-weight: 700;
+            font-size: 1rem;
+        }
+
+        /* Dark/light mode toggle */
+        .mode-toggle {
+            background: none;
+            border: none;
+            color: cyan;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        /* Light mode styles (toggle via JS) */
+        body.light-mode {
+            background: linear-gradient(to bottom, #f0f0f0, #d0d0d0);
+            color: #000033;
+        }
+
+        body.light-mode .article {
+            background: rgba(255,255,255,0.8);
+            color: #000;
+        }
+
+        body.light-mode h2 {
+            color: #000066;
+        }
+
+        body.light-mode p {
+            color: #333;
+        }
+
+        body.light-mode .live-badge {
+            background: #ff0000;
+        }
+
+        /* Media queries for responsive (BBC-level mobile) */
+        @media (max-width: 768px) {
+            #news-container {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                flex-direction: column;
+            }
+
+            .search-bar {
+                margin: 10px 0;
+            }
+
+            .hero-carousel {
+                height: 200px;
+            }
+
+            .carousel-slide h2 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Live ticker bar -->
+    <div class="live-ticker">
+        <span class="ticker-text">BREAKING: Global Markets Surge on AI Breakthroughs • Energy Alliances Reshape Trade • BGO NEWS: Sovereign Insights Live Now • Stay Ahead with BGO Briefing • </span>
+    </div>
+
+    <!-- Sticky header -->
     <header>
-        <div class="logo">
-            <div class="globe">
-                <div class="lighthouse">
-                    <div class="beam-gold"></div>
-                    <div class="beam-silver"></div>
+        <div class="logo-container">
+            <div class="logo">
+                <div class="globe">
+                    <div class="lighthouse">
+                        <div class="beam-gold"></div>
+                        <div class="beam-silver"></div>
+                    </div>
                 </div>
             </div>
+            <h1 class="brand-title">BGO NEWS</h1>
         </div>
+        <div class="search-bar">
+            <input type="text" id="search-input" class="search-input" placeholder="Search strategic intel...">
+        </div>
+        <button class="mode-toggle" onclick="toggleMode()">🌙</button> <!-- Toggle icon -->
     </header>
 
+    <!-- Navigation categories -->
+    <div class="nav-categories">
+        <a href="#" class="active" data-category="all">Home</a>
+        <a href="#" data-category="world">World</a>
+        <a href="#" data-category="markets">Markets</a>
+        <a href="#" data-category="technology">Technology</a>
+        <a href="#" data-category="policy">Policy</a>
+        <a href="#" data-category="cyber">Cyber</a>
+        <a href="#" data-category="energy">Energy</a>
+        <a href="#" data-category="sovereign">Sovereign</a>
+    </div>
+
+    <!-- Hero carousel (like BBC discover) -->
+    <div class="hero-carousel">
+        <div class="carousel-slide" style="background-image: url('https://source.unsplash.com/random/1200x300/?global,news');">
+            <h2>Global Sovereign Shifts</h2>
+            <p>Exclusive BGO insights on emerging policies.</p>
+        </div>
+        <div class="carousel-slide" style="background-image: url('https://source.unsplash.com/random/1200x300/?ai,tech');">
+            <h2>AI Expansions Worldwide</h2>
+            <p>High-security frameworks accelerating.</p>
+        </div>
+        <div class="carousel-slide" style="background-image: url('https://source.unsplash.com/random/1200x300/?energy,trade');">
+            <h2>Energy Alliances Reshape Trade</h2>
+            <p>New partnerships influencing supply chains.</p>
+        </div>
+    </div>
+
+    <!-- Main news grid -->
     <main>
-        <h1>BGO NEWS - Global Tech Updates</h1>
         <div id="news-container"></div>
     </main>
 
+    <!-- Subtle briefing CTA -->
+    <div id="briefing-cta">
+        <strong>Get the BGO Briefing</strong><br>
+        Strategic global intelligence. Clear, Direct. No noise.<br>
+        <input type="email" id="email-input" placeholder="Your email">
+        <button onclick="submitBriefing()">Join Briefing</button>
+        <a href="#" onclick="closeCTA()">Maybe later</a>
+    </div>
+
+    <!-- Bottom nav dock -->
     <nav>
         <a href="#">Home</a>
+        <a href="#">World</a>
+        <a href="#">Markets</a>
         <a href="#">Tech</a>
-        <a href="#">Global</a>
-        <a href="#">Contact</a>
+        <a href="#">Policy</a>
     </nav>
 
     <script>
-        // Replace with your free API token from https://www.thenewsapi.com (sign up for free)
-        const apiToken = 'YOUR_API_TOKEN_HERE';
+        // API token (sign up free at thenewsapi.com)
+        const apiToken = 'YOUR_API_TOKEN_HERE'; // Replace with yours
 
-        // Fetch top news (optimized for speed: limit 10, locale NG for Nigeria-relevant)
-        fetch(`https://api.thenewsapi.com/v1/news/top?api_token=${apiToken}&locale=ng&limit=10`)
-            .then(response => response.json())
-            .then(data => {
+        // Categories mapping to API parameters
+        const categories = {
+            all: '',
+            world: 'world',
+            markets: 'business',
+            technology: 'tech',
+            policy: 'politics',
+            cyber: 'tech', // Map to tech for now
+            energy: 'business',
+            sovereign: 'politics'
+        };
+
+        // Fetch news function
+        async function fetchNews(category = '') {
+            const locale = 'ng'; // Nigeria focus
+            const url = `https://api.thenewsapi.com/v1/news/all?api_token=${apiToken}&locale=${locale}&limit=20&categories=${categories[category] || ''}`;
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
                 const container = document.getElementById('news-container');
+                container.innerHTML = '';
                 if (data.data) {
-                    data.data.forEach(article => {
+                    data.data.forEach((article, index) => {
                         const div = document.createElement('div');
                         div.className = 'article';
+                        const isLive = Math.random() > 0.7; // Simulate 30% live
+                        const readTime = Math.floor(Math.random() * 5 + 3); // Simulate 3-7 min
                         div.innerHTML = `
-                            <h2>${article.title}</h2>
-                            <p>${article.description}</p>
-                            <a href="${article.url}" style="color: cyan;">Read More</a>
+                            ${isLive ? '<span class="live-badge">LIVE</span>' : ''}
+                            <img src="${article.image_url || 'https://source.unsplash.com/random/800x400/?${encodeURIComponent(article.title.split(' ')[0])}'}" alt="${article.title}" loading="lazy">
+                            <div class="article-content">
+                                <h2>${article.title}</h2>
+                                <p>${article.description}</p>
+                                <a href="${article.url}">Read Full →</a>
+                                <div class="read-time">${readTime} min read</div>
+                            </div>
                         `;
                         container.appendChild(div);
                     });
                 } else {
-                    container.innerHTML = '<p>Error loading news. Check API token.</p>';
+                    container.innerHTML = '<p>Error loading intel. Verify API token.</p>';
                 }
-            })
-            .catch(error => {
-                console.error('Fetch error:', error);
-                document.getElementById('news-container').innerHTML = '<p>Failed to load news. Please try later.</p>';
+            } catch (error) {
+                document.getElementById('news-container').innerHTML = '<p>Failed to load intel. Retry soon.</p>';
+            }
+        }
+
+        // Carousel rotation
+        const slides = document.querySelectorAll('.carousel-slide');
+        let currentSlide = 0;
+        function rotateCarousel() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        slides[0].classList.add('active');
+        setInterval(rotateCarousel, 5000);
+
+        // Category click handlers
+        document.querySelectorAll('.nav-categories a').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelectorAll('.nav-categories a').forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                fetchNews(link.dataset.category);
             });
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById('search-input');
+        searchInput.addEventListener('keyup', e => {
+            if (e.key === 'Enter') {
+                const query = searchInput.value.trim();
+                if (query) {
+                    fetchNews(); // Reset then filter client-side
+                    const articles = document.querySelectorAll('.article');
+                    articles.forEach(article => {
+                        const text = article.textContent.toLowerCase();
+                        article.style.display = text.includes(query.toLowerCase()) ? 'block' : 'none';
+                    });
+                }
+            }
+        });
+
+        // Mode toggle
+        function toggleMode() {
+            document.body.classList.toggle('light-mode');
+        }
+
+        // Briefing CTA logic
+        setTimeout(() => document.getElementById('briefing-cta').style.display = 'block', 5000); // Show after 5s
+        function closeCTA() {
+            document.getElementById('briefing-cta').style.display = 'none';
+        }
+        function submitBriefing() {
+            const email = document.getElementById('email-input').value;
+            if (email) {
+                alert('Joined BGO Briefing! Sovereign intel incoming.'); // Placeholder - replace with real submit
+                closeCTA();
+            }
+        }
+
+        // Initial fetch
+        fetchNews();
     </script>
 </body>
 </html>
