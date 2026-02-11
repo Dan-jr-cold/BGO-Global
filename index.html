@@ -1,210 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BGO NEWS - Beacon Global Official</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Midnight-navy gradient background */
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #000033, #000066);
+            color: #FFD700; /* Gold text */
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            will-change: transform; /* Optimize for performance */
+        }
 
-<title>BGO News | Beacon Global Official</title>
-<meta name="description" content="Beacon Global Official (BGO News) delivers strategic global intelligence, markets analysis, technology shifts and sovereign developments.">
+        /* Sticky header with glowing logo */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(0, 0, 51, 0.8); /* Semi-transparent navy */
+            backdrop-filter: blur(10px); /* Glassmorphism */
+            z-index: 1000;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+        .logo {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            perspective: 1000px; /* 3D perspective */
+            transform-style: preserve-3d;
+            animation: glow 2s infinite alternate;
+        }
 
-<style>
-:root{
---gold:#D4AF37;
---navy:#0A0F1C;
---dark:#050814;
---gray:#BFC6D1;
-}
+        /* 3D Teal Wireframe Globe with Lighthouse */
+        .globe {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 50% 50%, transparent, teal 50%);
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate-globe 20s linear infinite;
+            box-shadow: 0 0 20px teal; /* Glowing effect */
+        }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+        /* Wireframe lines */
+        .globe::before, .globe::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 1px solid teal;
+            opacity: 0.5;
+        }
 
-body{
-background:linear-gradient(180deg,var(--navy),var(--dark));
-color:white;
-}
+        .globe::before {
+            transform: rotateY(45deg);
+        }
 
-/* HEADER */
-header{
-background:#0B1222;
-padding:20px;
-border-bottom:3px solid var(--gold);
-position:sticky;
-top:0;
-z-index:1000;
-}
+        .globe::after {
+            transform: rotateY(90deg);
+        }
 
-.logo{
-font-size:24px;
-font-weight:800;
-letter-spacing:1px;
-}
+        /* Sovereign Gold Lighthouse */
+        .lighthouse {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateX(0deg);
+            width: 20px;
+            height: 40px;
+            background: linear-gradient(to bottom, gold, silver);
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 0 10px gold;
+        }
 
-.logo span{
-color:var(--gold);
-}
+        /* Dual gold and silver light beams */
+        .beam-gold, .beam-silver {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 50px;
+            background: linear-gradient(to top, transparent, gold);
+            animation: beam-pulse 3s infinite;
+            transform-origin: bottom;
+        }
 
-/* NAV */
-nav{
-margin-top:10px;
-display:flex;
-gap:20px;
-font-size:14px;
-}
+        .beam-silver {
+            background: linear-gradient(to top, transparent, silver);
+            animation-delay: 1.5s;
+        }
 
-nav a{
-color:var(--gray);
-text-decoration:none;
-font-weight:600;
-}
+        @keyframes rotate-globe {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
 
-nav a:hover{
-color:var(--gold);
-}
+        @keyframes beam-pulse {
+            0%, 100% { opacity: 0.5; transform: scaleY(1); }
+            50% { opacity: 1; transform: scaleY(1.5); }
+        }
 
-/* MAIN */
-main{
-max-width:900px;
-margin:40px auto;
-padding:0 20px;
-}
+        @keyframes glow {
+            0% { filter: brightness(1); }
+            100% { filter: brightness(1.5); }
+        }
 
-article{
-margin-bottom:40px;
-padding-bottom:30px;
-border-bottom:1px solid rgba(255,255,255,0.08);
-cursor:pointer;
-}
+        /* Massive bold Inter headlines */
+        h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            text-shadow: 0 0 10px silver; /* Embossed effect */
+            margin: 20px;
+            text-align: center;
+        }
 
-article h2{
-font-size:22px;
-margin-bottom:10px;
-}
+        /* News container */
+        #news-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-article p{
-color:var(--gray);
-line-height:1.6;
-}
+        .article {
+            background: rgba(255, 255, 255, 0.1); /* Frosted glass */
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
 
-/* SUBSCRIPTION MODAL */
-.subscribe-overlay{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,0.75);
-display:flex;
-justify-content:center;
-align-items:center;
-opacity:0;
-visibility:hidden;
-transition:0.4s;
-}
+        .article h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: gold;
+        }
 
-.subscribe-overlay.active{
-opacity:1;
-visibility:visible;
-}
+        .article p {
+            color: silver;
+        }
 
-.subscribe-box{
-background:#0E1628;
-padding:40px;
-width:90%;
-max-width:420px;
-border-radius:8px;
-text-align:center;
-}
+        /* Frosted-glass navigation dock at bottom */
+        nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 51, 0.6);
+            backdrop-filter: blur(20px);
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            z-index: 1000;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.5);
+        }
 
-.subscribe-box h3{
-font-size:20px;
-margin-bottom:15px;
-}
-
-.subscribe-box p{
-font-size:14px;
-color:var(--gray);
-margin-bottom:20px;
-}
-
-.subscribe-box input{
-width:100%;
-padding:12px;
-margin-bottom:15px;
-border:none;
-border-radius:4px;
-}
-
-.subscribe-box button{
-width:100%;
-padding:12px;
-background:var(--gold);
-border:none;
-font-weight:700;
-cursor:pointer;
-}
-
-.later{
-margin-top:15px;
-font-size:13px;
-color:var(--gray);
-cursor:pointer;
-}
-</style>
+        nav a {
+            color: cyan;
+            text-decoration: none;
+            font-weight: 700;
+        }
+    </style>
 </head>
-
 <body>
+    <header>
+        <div class="logo">
+            <div class="globe">
+                <div class="lighthouse">
+                    <div class="beam-gold"></div>
+                    <div class="beam-silver"></div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<header>
-<div class="logo">BGO <span>NEWS</span></div>
-<nav>
-<a href="#">World</a>
-<a href="#">Markets</a>
-<a href="#">Technology</a>
-<a href="#">Policy</a>
-</nav>
-</header>
+    <main>
+        <h1>BGO NEWS - Global Tech Updates</h1>
+        <div id="news-container"></div>
+    </main>
 
-<main>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Tech</a>
+        <a href="#">Global</a>
+        <a href="#">Contact</a>
+    </nav>
 
-<article onclick="countArticle()">
-<h2>Global Markets Adjust to Emerging Sovereign Policies</h2>
-<p>Financial sectors react to coordinated macroeconomic shifts across key economies.</p>
-</article>
+    <script>
+        // Replace with your free API token from https://www.thenewsapi.com (sign up for free)
+        const apiToken = 'YOUR_API_TOKEN_HERE';
 
-<article onclick="countArticle()">
-<h2>AI Infrastructure Expands Across Strategic Regions</h2>
-<p>Governments and private institutions accelerate high-security digital frameworks.</p>
-</article>
-
-<article onclick="countArticle()">
-<h2>Energy Alliances Reshape International Trade Flow</h2>
-<p>New partnerships are influencing long-term global supply strategies.</p>
-</article>
-
-</main>
-
-<div class="subscribe-overlay" id="subscribeBox">
-<div class="subscribe-box">
-<h3>Get the BGO Briefing</h3>
-<p>Strategic global intelligence. Clear. Direct. No noise.</p>
-<input type="email" placeholder="Enter your email">
-<button>Join Briefing</button>
-<div class="later" onclick="closeSubscribe()">Maybe later</div>
-</div>
-</div>
-
-<script>
-let articleCount = 0;
-
-function countArticle(){
-articleCount++;
-if(articleCount === 3){
-document.getElementById("subscribeBox").classList.add("active");
-}
-}
-
-function closeSubscribe(){
-document.getElementById("subscribeBox").classList.remove("active");
-}
-</script>
-
+        // Fetch top news (optimized for speed: limit 10, locale NG for Nigeria-relevant)
+        fetch(`https://api.thenewsapi.com/v1/news/top?api_token=${apiToken}&locale=ng&limit=10`)
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('news-container');
+                if (data.data) {
+                    data.data.forEach(article => {
+                        const div = document.createElement('div');
+                        div.className = 'article';
+                        div.innerHTML = `
+                            <h2>${article.title}</h2>
+                            <p>${article.description}</p>
+                            <a href="${article.url}" style="color: cyan;">Read More</a>
+                        `;
+                        container.appendChild(div);
+                    });
+                } else {
+                    container.innerHTML = '<p>Error loading news. Check API token.</p>';
+                }
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+                document.getElementById('news-container').innerHTML = '<p>Failed to load news. Please try later.</p>';
+            });
+    </script>
 </body>
 </html>
